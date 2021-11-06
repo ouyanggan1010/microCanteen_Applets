@@ -1,0 +1,33 @@
+<!--pages/addEditAddress/addEditAddress.wxml-->
+<view class="addEditAddress">
+    <view class="message">
+        <van-field label="收货人" value="{{ receiver }}" input-align="right" placeholder="请输入收货人" />
+        <van-field label="性别" is-link readonly bindtap="selectSex" value="{{ sexName }}" input-align="right"
+            placeholder="请选择性别" />
+        <van-field label="手机号" value="{{ phone }}" type="number" input-align="right" placeholder="请输入手机号" />
+        <van-field label="收货地址" is-link readonly type="textarea" autosize="{{true}}" value="{{ shippingAddress }}"
+            input-align="right" placeholder="请选择收货地址" bindtap="choseAddress" />
+        <van-field label="门牌号" input-align="right" value="{{ houseNumber }}" type="textarea" autosize="{{true}}"
+            placeholder="请输入门牌号" />
+    </view>
+    <view class="tag">
+        <van-cell center title="标签" title-width="173.6rpx">
+            <view class="soltTips">
+                <view wx:for="{{tips}}" wx:key="index" class="{{index==tip?'active':''}}" bindtap="changeTip"
+                    data-index="{{index}}">{{item}}</view>
+            </view>
+        </van-cell>
+        <van-cell center title="设置默认地址">
+            <van-switch checked="{{ checked }}" bind:change="onChangeSwitch" size="40rpx" active-color="#a7d500"
+                inactive-color="#fdfdfd" />
+        </van-cell>
+    </view>
+    <!-- 按钮 -->
+    <view class="editBtns" wx:if="{{type==1}}">
+        <button class="delete" type="default" plain="true" bindtap="deleteAddress">删除</button>
+        <button class="safe" type="default" plain="true">保存</button>
+    </view>
+    <view class="addBtns" wx:if="{{type==2}}">
+        <button class="safe" type="default" plain="true">保存</button>
+    </view>
+</view>

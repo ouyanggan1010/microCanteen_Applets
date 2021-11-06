@@ -1,0 +1,145 @@
+.meal-top {
+  background-color: #fff;
+  height: var(--lineH);
+  padding-top: var(--padTop);
+  position: relative;
+  .title {
+    text-align: center;
+    font-size: 14px;
+    color: #000000;
+    line-height: var(--lineH);
+  }
+  .posA {
+    background-color: #a7d500;
+    position: absolute;
+    top: var(--padTop);
+    left: 0;
+    color: #fff;
+    font-size: 28rpx;
+    height: 60rpx;
+    padding: 10rpx 20rpx 10rpx 50rpx;
+    border-bottom-right-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    .iconfont {
+      position: absolute;
+      left: -24rpx;
+      top: -10rpx;
+      font-size: 74rpx;
+      color: #ffe866;
+    }
+  }
+}
+
+.meal-addressType {
+  background-color: #fff;
+  padding: 20rpx;
+  .overOne {
+    max-width: 450rpx;
+  }
+  // .switchTab {
+  //   background-color: #f5f5f5;
+  //   width: 200rpx;
+  //   height: 60rpx;
+  //   color: #919191;
+  //   font-size: 25rpx;
+  //   border-radius: 60rpx;
+  //   .default {
+  //     width: 100rpx;
+  //     height: 60rpx;
+  //     border-radius: 60rpx;
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: center;
+  //   }
+  //   .active {
+  //     background-color: #a7d500;
+  //     color: #fff;
+  //   }
+  // }
+}
+.meal-notice {
+  height: 80rpx;
+  background-color: #f9fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  color: #a7d500;
+}
+.meal-lists {
+  height: calc(100vh - 80rpx - 122rpx - 128rpx);
+}
+.tag {
+  margin-left: -10rpx;
+  margin-top: 2rpx;
+  view {
+    padding: 4rpx 8rpx;
+    margin-left: 10rpx;
+    margin-top: 10rpx;
+  }
+  .pink {
+    background-color: #fbf2f3;
+    color: #f4a1b3;
+  }
+  .gray {
+    background-color: #f6f6f6;
+    color: #a3a4a8;
+  }
+  .yellow {
+    background-color: #f9f5e9;
+    color: #e2b769;
+  }
+}
+.meal-food {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60rpx;
+  .format {
+    background-color: #a7d500;
+    color: #fff;
+    font-size: 22rpx;
+    padding: 0 18rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    border-radius: 42rpx;
+  }
+}
+.count {
+  .iconfont {
+    font-size: 40rpx;
+  }
+  .icon-iconset0187 {
+    color: #b3b7b8;
+  }
+  .icon--jia {
+    color: #a7d500;
+  }
+  .text {
+    font-size: 28rpx;
+    padding: 0 8rpx;
+    min-width: 70rpx;
+    text-align: center;
+  }
+}
+.meal-lookMore {
+  padding: 16rpx 0;
+  background-color: #f3f4f6;
+  color: #a1a5a8;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restTips{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24rpx 20rpx;
+  background-color: #f0f4e6;
+  color: #a9ca33;
+  font-size: 28rpx;
+  text-align: center;
+}

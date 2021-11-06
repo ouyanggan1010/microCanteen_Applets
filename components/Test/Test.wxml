@@ -1,0 +1,2 @@
+<!--components/Test/Test.wxml-->
+<text>{{sum}}</text>

@@ -1,0 +1,219 @@
+<!--pages/orderSettlement/orderSettlement.wxml-->
+<view class="orderSettlement">
+  <view class="top mt-14">
+    <!-- 自取与外卖切换 -->
+    <view class="d-flex ai-center jc-between borderb box-b pb-14">
+      <!-- 地址 -->
+      <view class="mr-20 flex-1">
+        <!-- 自取 -->
+        <navigator wx:if="{{ pickType == 0 }}" class="d-flex ai-center" url="/pages/chooseStore/chooseStore"
+          open-type="navigate">
+          <view class="overOneN">{{ selfCollection.shopName }}</view>
+          <text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+        </navigator>
+        <!-- 外卖 -->
+        <navigator wx:if="{{ pickType == 1 }}" class="d-flex ai-center"
+          url="{{ '/pages/myAddress/myAddress?store=' + takeaway.shopName }}" open-type="navigate">
+          <view class="overOneN">{{ takeaway.address }}</view>
+          <text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+        </navigator>
+        <!-- 自取 -->
+        <view class="fs-11 text-gray-91 mt-4 lineH-18">{{
+          pickType == 0
+          ? "距离您" + selfCollection.distance + "，请确认下单门店是否正确"
+          : takeaway.name + takeaway.phone
+          }}</view>
+      </view>
+      <SwitchMealType type="{{ pickType }}" bind:changePickP="changePick"></SwitchMealType>
+    </view>
+    <!-- 自取 -->
+    <view wx:if="{{ pickType == 0 }}">
+      <!-- 联系电话 -->
+      <view class="selfPhone borderb">
+        <view>联系电话</view>
+        <view>13518814469</view>
+      </view>
+      <!-- 取餐时间 -->
+      <view class="selfPhone borderb">
+        <view>取餐时间</view>
+        <view class="d-flex ai-center" bind:tap="onMealTime">
+          <text class="text-green-a7">{{ partSelfTime }}</text>
+          <text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+        </view>
+      </view>
+      <!-- 取餐方式 -->
+      <van-radio-group class="selfRadio" direction="horizontal" value="{{ selfRadio }}" bind:change="changeSelfRadio">
+        <view class="viewRadio">
+          <van-radio name="1" checked-color="#a7d500">店内堂食</van-radio>
+        </view>
+        <view class="viewRadio">
+          <van-radio name="2" checked-color="#a7d500">打包带走</van-radio>
+        </view>
+      </van-radio-group>
+    </view>
+    <!-- 外卖 -->
+    <view wx:if="{{ pickType == 1 }}">
+      <!-- 送达时间 -->
+      <view class="selfPhone">
+        <view>送达时间</view>
+        <view class="d-flex ai-center" bind:tap="onServiceTime">
+          <text class="text-green-a7">{{ partTakeawayTime }}</text>
+          <text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品列表与费用 -->
+  <view class="commodity mt-14">
+    <view class="list" wx:for="{{ orderLists }}" wx:key="id">
+      <view class="commonStyle fwb">
+        <view class="flex-2">{{ item.title }}</view>
+        <view class="flex-1 text-right">￥{{ item.price }}</view>
+      </view>
+      <view class="d-flex jc-between ai-start fs-12 text-gray-91 mt-6">
+        <view class="flex-2">{{ item.standardSel }}</view>
+        <view class="flex-1 text-right">×{{ item.num }}</view>
+      </view>
+    </view>
+    <!-- 费用 -->
+    <view class="cost" wx:if="{{ pickType == 1 }}">
+      <view class="mt-16 commonStyle">
+        <view class="flex-2">包装费</view>
+        <view class="flex-1 text-right">
+          <van-checkbox value="{{ costChecked }}" checked-color="#a7d500" label-position="left"
+            bind:change="changeCostChecked" label-class="labelChecked" custom-class="customChecked">
+            ￥{{ takeaway.packageFee }}
+          </van-checkbox>
+        </view>
+      </view>
+      <view class="mt-16 commonStyle">
+        <view class="flex-2">配送费</view>
+        <view class="flex-1 text-right">￥{{ takeaway.deliveryFee }}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 搭配 -->
+  <view class="commodity collocation mt-14">
+    <view class="fs-14 text-black-31 px-14">精选搭配，美好加倍</view>
+    <scroll-view class="scrollList" scroll-x style="width: 100%">
+      <view class="inter">
+        <view class="d-flex ai-start">
+          <view class="listView {{ item.clickBool ? 'active' : '' }}" wx:for="{{ collocationLists }}" wx:key="id"
+            bind:tap="addNums" data-cid="{{ item.id }}">
+            <image src="{{ item.pic }}" mode="aspectFit"></image>
+            <view class="title overOne">{{ item.title }}</view>
+            <view class="price">￥{{ item.price }}</view>
+            <view class="count" wx:if="{{ item.num > 0 }}">
+              <text class="iconfont icon-iconset0187" catchtap="changeShopCart" data-type="0"
+                data-cid="{{ item.id }}"></text>
+              <text class="text">{{ item.num }}</text>
+              <text class="iconfont icon--jia" catchtap="changeShopCart" data-type="1" data-cid="{{ item.id }}"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 优惠、礼品卡 -->
+  <view class="commonBg discount mt-14">
+    <view class="coupon">
+      <text class="iconfont icon-arrow_up"></text>
+      <text class="text">热卖</text>
+      <view class="fwb">限时储存赠单品免费券</view>
+      <navigator url="" open-type="navigate" class="d-flex ai-center">
+        <text class="fs-14 text-green-a7">立即购买</text>
+        <text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+      </navigator>
+    </view>
+    <view class="px-14">
+      <view class="couponCard">
+        <view class="d-flex ai-center">
+          <view class="mark">券</view>
+          <view>优惠券</view>
+        </view>
+        <view class="text-gray-a1">暂无可用优惠券</view>
+      </view>
+      <view class="couponCard">
+        <view class="d-flex ai-center">
+          <view class="mark">卡</view>
+          <view>礼品卡</view>
+        </view>
+        <view class="text-gray-a1">暂无可用礼品卡</view>
+      </view>
+    </view>
+    <view class="d-flex jc-end ai-center py-16 px-14">
+      <view class="d-flex ai-center">
+        <text class="fs-12">应付</text>
+        <text class="fs-16 fwb">￥{{totalPayAmount}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 结算选择 -->
+  <view class="commonBg mt-14 px-14 pt-14">
+    <view class="fs-14 text-black-31">支付方式</view>
+    <van-radio-group class="payMethod" value="{{ disabledOver?'2':payRadio }}" bind:change="changePayRadio">
+      <view class="overage">
+        <view class="d-flex textIcon {{ disabledOver?'disabled':'' }}">
+          <text class="iconfont icon-qian"></text>
+          <view>
+            <view class="title lineH-30">会员余额(可用￥{{balance}})</view>
+            <view class="advertis">
+              <text>储值300元立赠1杯</text>
+              <navigator class="iconfont icon-iconfontyoujiantou-copy" url="" open-type="navigate"></navigator>
+            </view>
+          </view>
+        </view>
+        <view class="heightDiv-30 d-flex ai-center">
+          <van-radio name="1" label-position="left" disabled="{{ disabledOver }}" checked-color="#a7d500">{{
+            disabledOver?"余额不足":"" }}</van-radio>
+        </view>
+      </view>
+      <view class="overage">
+        <view class="d-flex ai-center textIcon">
+          <text class="iconfont icon-weixin1"></text>
+          <text class="title">微信</text>
+        </view>
+        <view class="heightDiv-30 d-flex ai-center">
+          <van-radio name="2" label-position="left" checked-color="#a7d500"></van-radio>
+        </view>
+      </view>
+    </van-radio-group>
+  </view>
+  <!-- 提交按钮 -->
+  <view class="submitBtn">
+    <view class="flex-2">
+      <text class="mr-8">待支付</text>
+      <text class="fs-20 fwb">￥{{totalPayAmount}}</text>
+    </view>
+    <view class="flex-1" bind:tap="paySubBtn">付款</view>
+  </view>
+</view>
+<!-- 自取取餐时间弹框 -->
+<van-popup show="{{ showSelfTime }}" position="bottom" close-on-click-overlay custom-style="width: 100%;height:60%"
+  overlay-style="background-color: rgba(0,0,0,.4);" bind:close="closeSelfPopup">
+  <PopupTime id="childPopupTimeOne" type="1" bind:changePartTimeP="changeSelfPartTime"></PopupTime>
+</van-popup>
+<!-- 外卖送餐时间弹框 -->
+<van-popup show="{{ showTakeawayTime }}" position="bottom" close-on-click-overlay custom-style="width: 100%;height:60%"
+  overlay-style="background-color: rgba(0,0,0,.4);" bind:close="closeTakePopup">
+  <PopupTime id="childPopupTimeTwo" type="2" bind:changePartTimeP="changeTakePartTime"></PopupTime>
+</van-popup>
+<!-- 结算弹框 -->
+<van-popup show="{{ showSelfPayBtn }}" round close-on-click-overlay custom-style="width: 90%;height:45%"
+  overlay-style="background-color: rgba(0,0,0,.4);" custom-class="payBtnPupop" bind:close="closeSelfPayPopup">
+  <view class="title">{{pickType==0?"请再次确认下单门店":"请再次确认下单地址"}}</view>
+  <view class="shop">
+    <text wx:if="{{pickType==0}}">{{selfCollection.shopName}}</text>
+    <text wx:if="{{pickType==1}}">{{takeaway.name}} {{takeaway.sex==0?"女士":"男士"}}</text>
+    <text>{{pickType==0?selfCollection.distance:takeaway.phone}}</text>
+  </view>
+  <view class="address">
+    <view>{{pickType==0?selfCollection.address:takeaway.address}}</view>
+    <navigator wx:if="{{pickType==0}}" url="" open-type="navigate">更改门店</navigator>
+    <navigator wx:if="{{pickType==1}}" url="" open-type="navigate">更改地址</navigator>
+  </view>
+  <view class="btn">
+    <view>确认并付款</view>
+  </view>
+  <view class="iconfont icon-guanbi" bind:tap="closeSelfPayPopup"></view>
+</van-popup>

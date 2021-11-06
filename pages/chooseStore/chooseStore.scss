@@ -1,0 +1,88 @@
+/* pages/chooseStore/chooseStore.wxss */
+.chooseStore {
+  .searchAddress {
+    box-sizing: border-box;
+    padding: 24rpx 30rpx;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > .address {
+      display: flex;
+      align-items: center;
+      .iconfont {
+        color: #878b95;
+        font-size: 24rpx;
+        margin-left: 8rpx;
+      }
+    }
+    > .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7f7f7;
+      width: 160rpx;
+      height: 68rpx;
+      border-radius: 68rpx;
+      font-size: 28rpx;
+      color: #9fa3a5;
+      .iconfont {
+        color: #9fa3a5;
+        font-size: 26rpx;
+        margin-right: 8rpx;
+      }
+    }
+  }
+  .mapView {
+    > .map {
+      height: 440rpx;
+      width: 100%;
+      #myMap {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    > .upDown {
+      padding: 16rpx 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #595758;
+      background-color: #ffffff;
+      .iconfont {
+        color: #9a9a9a;
+        font-size: 26rpx;
+        margin-left: 8rpx;
+      }
+    }
+  }
+  .storeLists {
+    padding: 0 28rpx 30rpx 28rpx;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(100vh - 44px - 116rpx - 510rpx - 30rpx);
+    overflow-y: auto;
+    margin-top: 30rpx;
+    &.commonly{
+      height: auto;
+      padding: 30rpx 28rpx;
+      margin-top: 0;
+    }
+  }
+  .noCommonly {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 140rpx;
+    > .iconfont {
+      color: #a7d500;
+      font-size: 200rpx;
+    }
+    > .text {
+      color: #999696;
+      font-size: 30rpx;
+      margin-top: 20rpx;
+    }
+  }
+}

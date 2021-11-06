@@ -1,0 +1,31 @@
+<!--components/MapPoiList/MapPoiList.wxml-->
+<!-- POI数组 -->
+<scroll-view id="the-id" scroll-y="{{ scrollY }}" scroll-top="{{scrollTop}}" class="scrollOne" bindscroll="scrollview" bindscrolltolower="scrolltolower"
+  bindscrolltoupper="scrolltoupper" scroll-into-view="{{ 'id_' + scrollId }}"
+  scroll-with-animation>
+  <view class="poisOne" hidden="{{ pois.length <= 0 }}">
+    <!-- 数据部分 -->
+    <view class="poi" wx:for="{{ pois }}" wx:key="*this" bindtap="tapCheckPoi" data-index="{{ index }}"
+      id="{{ 'id_' + item.id }}">
+      <view class="character">
+        <view class="text-black-31 fs-16 overOneN">{{ item.title }}</view>
+        <view class="text-gray-91 fs-12 mt-6 overOneN">
+          <text>{{ item.distance }}</text>
+          <text class="mx-4">|</text>
+          <text>{{ item.address }}</text>
+        </view>
+      </view>
+      <view class="picGou">
+        <text hidden="{{ activeIndex !== index }}" class="iconfont icon-dagou fs-24 text-green-38"></text>
+      </view>
+    </view>
+    <!-- 下拉加载部分 -->
+    <view class="dropDown">
+      <van-loading size="40rpx" type="spinner" wx:if="{{ poiBool }}">正在加载...</van-loading>
+      <view hidden="{{ poiBool }}">暂无数据</view>
+    </view>
+  </view>
+  <view wx:if="{{(type == 2 && pois.length <= 0) ||(type == 1 && pois.length <= 0 && searchVal)}}" class="loading">
+    <van-loading size="80rpx" text-size="30rpx" vertical>加载中...</van-loading>
+  </view>
+</scroll-view>

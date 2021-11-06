@@ -1,0 +1,132 @@
+/* components/OrderList/OrderList.wxss */
+.order_list {
+  .scroll-view {
+    box-sizing: border-box;
+    padding-top: 20rpx;
+    height: calc(100vh - 88px);
+    .scroll-view-item {
+      background-color: #ffffff;
+      border-radius: 14rpx;
+      padding: 28rpx;
+      box-sizing: border-box;
+      margin-bottom: 28rpx;
+      > .top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 2rpx dotted #e3e4e8;
+        padding-bottom: 30rpx;
+        .title {
+          font-size: 30rpx;
+          color: #313131;
+          font-weight: bold;
+        }
+        .orderTime {
+          font-size: 22rpx;
+          color: #a2a3a7;
+          margin-top: 8rpx;
+        }
+        .status {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 30rpx;
+          color: #252525;
+          .iconfont {
+            font-size: 24rpx;
+            color: #878a93;
+            margin-left: 6rpx;
+          }
+        }
+      }
+      > .cnt {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding-top: 30rpx;
+        > .imgs {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          > .img {
+            width: 110rpx;
+            height: 110rpx;
+            border-radius: 14rpx;
+            margin-left: 8rpx;
+            &:nth-child(1) {
+              margin-left: 0;
+            }
+          }
+        }
+        > .texts {
+          text-align: right;
+          > .one {
+            font-size: 24rpx;
+            color: #a0a4a5;
+          }
+          > .two {
+            margin-top: 8rpx;
+            font-size: 24rpx;
+            color: #585858;
+            .text-24 {
+              color: #242424;
+            }
+          }
+        }
+      }
+      > .invoicing {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 30rpx;
+        >.bill{
+          width: 180rpx;
+          padding: 10rpx 0;
+          box-sizing: border-box;
+          border: 4rpx solid #a0a4a7;
+          border-radius: 10rpx;
+          font-size: 30rpx;
+          color: #595758;
+          text-align: center;
+        }
+      }
+    }
+    .dropDown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-bottom: 16rpx;
+      color: #969799;
+      font-size: 28rpx;
+    }
+  }
+  .empty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 140rpx;
+    > .iconfont {
+      color: #a7d500;
+      font-size: 200rpx;
+    }
+    > .text {
+      color: #969799;
+      font-size: 28rpx;
+      margin-top: 8rpx;
+    }
+    > .navTo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #a7d500;
+      height: 76rpx;
+      width: 300rpx;
+      border-radius: 76rpx;
+      color: #ffffff;
+      font-size: 30rpx;
+      margin-top: 60rpx;
+    }
+  }
+}

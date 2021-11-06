@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "MapPoiList":"../../components/MapPoiList/MapPoiList"
+  },
+  "navigationStyle":"custom"
+}

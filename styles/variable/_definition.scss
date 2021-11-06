@@ -1,0 +1,32 @@
+@charset "utf-8";
+$base-size: 2rpx;
+
+//------------------------------定义颜色
+$colors: (
+  "white": #fff,
+  "black": #000,
+  "black-31":#313131,
+  "black-59":#595758,
+  "black-71":#717276,
+  "green-a7": #a7d700,
+  "green-a9":#a9d119,
+  "green-38":#38cc7e,
+  "gray-91":#919191,
+  "gray-a2":#a2a3a7,
+  "gray-f5":#f5f5f5,
+  "gray-70":#707175,
+  "gray-a1":#a1a3a5,
+  "orange-ef": #ef6527
+);
+//------------------------------spacing
+//.mt-0 => margin-top level 1
+$spacing-types: (
+  "m": margin,
+  "p": padding,
+);
+$spacing-directions: (
+  "t": top,
+  "b": bottom,
+  "r": right,
+  "l": left,
+);

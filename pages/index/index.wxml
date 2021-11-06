@@ -1,0 +1,87 @@
+<view class="pb-20">
+  <!-- 第一部分 -->
+  <view class="swiper-class">
+    <!-- 文字 -->
+    <view class="text-reminder text-white" style="--top: {{ reminderTop }}px">
+      <view class="fs-14">您好，{{userName ? userName : "匿名"}}</view>
+      <view class="fs-10 mt-4">一杯好茶，一口软包，在奈雪遇见两种美好</view>
+    </view>
+    <!-- 轮播 -->
+    <swiper class="swiperOne" indicator-dots autoplay circular>
+      <swiper-item wx:for="{{ swiperItems }}" wx:key="id">
+        <navigator style="width: 100%; height: 100%;" url="" open-type="navigate">
+          <image style="width: 100%; height: 100%;" src="{{item.pic}}" />
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 第二部分 -->
+  <view class="twoPart">
+    <!-- 自取、外卖 -->
+    <view class="py-20 bg-white borderR d-flex boxs">
+      <navigator class="flex-1 d-flex flex-column ai-center jc-center" url="" open-type="navigate">
+        <view class="iconfont icon-naicha fs-46 text-green-a7"></view>
+        <view class="fs-18 fwb mt-4">自取</view>
+        <view class="fs-10 text-gray-91 mt-4">预约点单，到店自取</view>
+      </navigator>
+      <navigator class="flex-1 d-flex flex-column ai-center jc-center van-hairline--left" url="" open-type="navigate">
+        <view class="iconfont icon-waimai fs-46 text-green-a7"></view>
+        <view class="fs-18 fwb mt-4">外卖</view>
+        <view class="fs-10 text-gray-91 mt-4">外卖下单，快速送达</view>
+      </navigator>
+    </view>
+    <!-- 我的积分、会员码 -->
+    <view class="mt-14 py-14 bg-white borderR d-flex jc-between ai-center boxs">
+      <!-- 我的积分 -->
+      <navigator class="ml-12" url="" open-type="navigate">
+        <view class="fs-12 fwb d-flex ai-end">我的积分<text class="fs-20 ml-4 lineH-20">{{scores}}</text></view>
+        <view class="fs-10 text-gray-91 d-flex ai-center mt-6">签到的积分，商城兑换限量周边<text
+            class="iconfont icon-iconfontyoujiantou-copy fs-8 ml-4"></text></view>
+      </navigator>
+      <!-- 会员码 -->
+      <navigator class="mr-30 text-gray-91 d-flex flex-column ai-center jc-center" url="" open-type="navigate">
+        <text class="iconfont icon-ico fs-24"></text>
+        <view class="fs-10">会员码</view>
+      </navigator>
+    </view>
+    <!-- 茶商城、储值有礼、买茶送包 -->
+    <view class="d-flex jc-between mt-14">
+      <!-- 茶商城 -->
+      <navigator class="partThree flex-4" target="miniProgram" app-id="wxe611cd893c49d73e" open-type="navigate">
+        <view class="fs-12 fwb">奈雪的茶商城</view>
+        <view class="fs-10 text-gray-91 mt-4">好茶随行，美好常在<text
+            class="iconfont icon-iconfontyoujiantou-copy fs-8 ml-4"></text></view>
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/shop.png" />
+      </navigator>
+      <!-- 储值有礼 -->
+      <navigator class="partThree flex-2 ml-12" url="" open-type="navigate">
+        <view class="fs-12 fwb">储值有礼</view>
+        <view class="tips">享买1赠1</view>
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/饮料杯.png" />
+      </navigator>
+      <!-- 买茶送包 -->
+      <navigator class="partThree flex-2 ml-12" url="" open-type="navigate">
+        <view class="fs-12 fwb">买茶送包</view>
+        <view class="tips">限时有礼</view>
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/钱币.png" />
+      </navigator>
+    </view>
+    <!-- 会员新鲜事 -->
+    <view class="mt-14 bg-white p-12 borderR">
+      <!-- 标题 -->
+      <navigator class="d-inblock" url="" open-type="navigate">
+        <view class="fs-14 fwb">会员新鲜事<text class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"></text>
+        </view>
+      </navigator>
+      <!-- 内容 -->
+      <view class="imgLink">
+        <block wx:for="{{member}}" wx:key="id">
+          <navigator class="" url="" open-type="navigate">
+            <view>{{item.leftCnt}}<text class="mx-6">|</text>{{item.rightCnt}}</view>
+            <image mode="scaleToFill" src="{{item.pic}}" />
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

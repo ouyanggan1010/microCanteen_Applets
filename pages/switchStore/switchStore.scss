@@ -1,0 +1,15 @@
+/* pages/switchStore/switchStore.wxss */
+.switchStore {
+  padding-bottom: 30rpx;
+  > .switch_top {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 30rpx 58rpx 50rpx 58rpx;
+  }
+  > .switch_lists {
+    padding: 0 28rpx;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+  }
+}

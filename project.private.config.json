@@ -1,0 +1,96 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "我的地址",
+          "pathName": "pages/myAddress/myAddress",
+          "query": "store=\"海口吾悦广场\"",
+          "scene": null
+        },
+        {
+          "name": "点餐",
+          "pathName": "pages/meal/meal",
+          "query": "store=%22%E6%B5%B7%E5%8F%A3%E5%90%BE%E6%82%A6%E5%B9%BF%E5%9C%BA%22",
+          "scene": null
+        },
+        {
+          "name": "添加编辑地址",
+          "pathName": "pages/addEditAddress/addEditAddress",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "name": "地图",
+          "pathName": "pages/mapAddress/mapAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/currentOrderDetail/currentOrderDetail",
+          "query": "id=oId_0",
+          "scene": null
+        },
+        {
+          "name": "开发票",
+          "pathName": "pages/invoicing/invoicing",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "切换配送门店",
+          "pathName": "pages/switchStore/switchStore",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择门店",
+          "pathName": "pages/chooseStore/chooseStore",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索门店",
+          "pathName": "pages/searchStore/searchStore",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "切换城市",
+          "pathName": "pages/switchCity/switchCity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单结算",
+          "pathName": "pages/orderSettlement/orderSettlement",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

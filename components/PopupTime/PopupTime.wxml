@@ -1,0 +1,26 @@
+<!--components/PopupTime/PopupTime.wxml-->
+<view class="popupTime">
+  <view class="title">请选择取餐时间</view>
+  <view class="cnt">
+    <view class="left">
+      <view
+        class="totalList {{ activeTime == index ? 'active' : '' }}"
+        bind:tap="clickTotalTime"
+        wx:for="{{ totalTimes }}"
+        wx:key="index"
+        data-index="{{ index }}"
+        >{{ item.title }}</view
+      >
+    </view>
+    <view class="right">
+      <view
+        class="partList"
+        wx:for="{{ totalTimes[activeTime].parts }}"
+        wx:key="*this"
+        bind:tap="getPartTime"
+        data-cnt="{{ item }}"
+        >{{ item }}</view
+      >
+    </view>
+  </view>
+</view>

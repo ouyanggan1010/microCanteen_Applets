@@ -1,0 +1,88 @@
+/* components/ShopCart/ShopCart.wxss */
+.shopCart {
+  padding-bottom: 20rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .panel {
+    width: 90%;
+    background-color: #fff;
+    height: 112rpx;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 112rpx;
+    display: flex;
+    justify-content: space-between;
+    z-index: 101;
+    .yesBtn {
+      width: 156rpx;
+      height: 100%;
+      border-bottom-right-radius: 112rpx;
+      border-top-right-radius: 112rpx;
+      background-color: #a7d500;
+      color: #fff;
+      font-size: 32rpx;
+      line-height: 112rpx;
+      text-align: center;
+    }
+    image {
+      position: absolute;
+      top: -40rpx;
+      left: 0;
+      width: 120rpx;
+      height: 120rpx;
+    }
+    .mark {
+      position: absolute;
+      top: -35rpx;
+      right: 0;
+      width: 44rpx;
+      height: 44rpx;
+      border-radius: 100%;
+      background-color: #ffc211;
+      color: #fff;
+      font-size: 22rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.box-top {
+  height: 68rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #f9fafc;
+  font-size: 24rpx;
+  color: #76777b;
+  padding: 0 40rpx;
+}
+.cartsList {
+  width: 100%;
+  padding: 0 40rpx;
+  background-color: #fff;
+  max-height: 544rpx;
+  overflow-y: auto;
+  .cart-list {
+    width: 100%;
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    border-top: 2rpx solid #f3f4f5;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &:nth-child(1) {
+      border: none;
+    }
+    .img {
+      width: 120rpx;
+      height: 120rpx;
+    }
+    >.flex-1{
+      min-height: 120rpx;
+    }
+  }
+}

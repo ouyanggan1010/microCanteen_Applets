@@ -1,0 +1,127 @@
+<view wx:if="{{ isPage }}">
+  <!-- 头部 -->
+  <view class="meal-top" style="--padTop:{{topPad}}px">
+    <view class="title"  style="--lineH:{{titleLineH}}px">奈雪的茶</view>
+    <view class="posA" bindtap="openFightOrderP">
+      <text>拼单</text>
+      <view class="iconfont icon-naicha"></view>
+    </view>
+  </view>
+  <!-- 地址与取货方式 -->
+  <view class="meal-addressType d-flex ai-center jc-between">
+    <!-- 地址 -->
+    <view class="mr-10">
+      <!-- 自取 -->
+      <navigator
+        wx:if="{{ pickType == 0 }}"
+        class="d-flex ai-center"
+        url="/pages/chooseStore/chooseStore"
+        open-type="navigate"
+      >
+        <view class="overOne">{{selfCollection.shopName}}</view>
+        <text
+          class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"
+        ></text>
+      </navigator>
+      <!-- 外卖 -->
+      <navigator
+        wx:if="{{ pickType == 1 }}"
+        class="d-flex ai-center"
+        url="{{ '/pages/myAddress/myAddress?store=' + takeaway.shopName }}"
+        open-type="navigate"
+      >
+        <view class="overOne">{{takeaway.address}}</view>
+        <text
+          class="iconfont icon-iconfontyoujiantou-copy fs-10 ml-4 text-gray-91"
+        ></text>
+      </navigator>
+      <!-- 自取 -->
+      <view class="fs-12 text-gray-91 mt-4 lineH-18" wx:if="{{ pickType == 0 }}"
+        >距离您{{ selfCollection.distance }}</view
+      >
+      <!-- 外卖 -->
+      <view class="mt-4 d-flex ai-center lineH-18" wx:if="{{ pickType == 1 }}">
+        <navigator
+          class="d-flex ai-center text-green-a9"
+          url="{{ '/pages/switchStore/switchStore?address=' + takeaway.address + '&storeName='+ takeaway.shopName}}"
+          open-type="navigate"
+        >
+          <text class="iconfont icon-qiehuan"></text>
+          <view class="ml-2 fs-12">{{ takeaway.shopName }}</view>
+        </navigator>
+        <view class="fs-12 text-gray-91 ml-4">配送</view>
+      </view>
+    </view>
+    <SwitchMealType type="{{pickType}}" bind:changePickP="changePick"></SwitchMealType>
+    <!-- <view class="d-flex ai-center jc-between switchTab">
+      <view
+        class="default {{ pickType == 0 ? 'active' : '' }}"
+        bindtap="changePick"
+        data-type="0"
+        >自取</view
+      >
+      <view
+        class="default {{ pickType == 1 ? 'active' : '' }}"
+        bindtap="changePick"
+        data-type="1"
+        >外卖</view
+      >
+    </view> -->
+  </view>
+  <!-- 通知栏 -->
+  <navigator class="meal-notice" open-type="navigate">
+    <view class="d-flex ai-center">
+      <text class="iconfont icon-aixin"></text>
+      <view class="ml-4">{{ notice }}</view>
+    </view>
+    <text class="iconfont icon-iconfontyoujiantou-copy fs-12"></text>
+  </navigator>
+  <!-- 列表区 -->
+  <view class="meal-lists">
+    <GoodsList
+      listsLeft="{{ foodListsLeft }}"
+      listsRight="{{ foodListsRight }}"
+      restDate="{{ restDate }}"
+      bind:changeShopCart="changeShopCart"
+      bind:foodModalC="foodModal"
+    ></GoodsList>
+  </view>
+  <!-- 商品详情弹出层 -->
+  <van-popup
+    show="{{ showFoodDetail }}"
+    z-index="102"
+    round
+    bind:close="closeFoodDetailP"
+    custom-style="width: 92%"
+    overlay-style="background-color: rgba(0,0,0,.4);"
+  >
+    <FoodDetailBox
+      showVariable="{{ showFoodDetail }}"
+      restIs="{{ restDate }}"
+      foodDetailObj="{{ foodDetailObj }}"
+      bind:hidefoodBox="closeFoodDetailP"
+      bind:addCardEvent="changeBuyNumP"
+    ></FoodDetailBox>
+  </van-popup>
+  <!-- 购物车 -->
+  <ShopCart
+    wx:if="{{ shopCartShow }}"
+    shopCarts="{{ foodCart }}"
+    bind:clearShopCart="clearShopCartP"
+    bind:changeShopCart="changeShopCart"
+  ></ShopCart>
+  <!-- 休息中 -->
+  <view class="restTips" wx:if="{{ !restDate }}"
+    >休息中（营业时间：10:00-22:30）</view
+  >
+  <!-- 拼单 -->
+  <van-popup
+    show="{{ showFightOrder }}"
+    round
+    bind:close="closeFightOrderP"
+    custom-style="width: 75%"
+    overlay-style="background-color: rgba(0,0,0,.4);"
+  >
+    <FightOrder></FightOrder>
+  </van-popup>
+</view>

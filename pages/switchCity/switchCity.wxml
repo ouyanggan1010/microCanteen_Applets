@@ -1,0 +1,47 @@
+<!--pages/switchCity/switchCity.wxml-->
+<view class="switchCity">
+  <van-tabs active="{{ tabActive }}" color="#a7d500" title-active-color="#252525" title-inactive-color="#717276"
+    line-width="70rpx" z-index="2" border sticky bind:change="onChangeTab" nav-class="cityNav">
+    <van-tab title="城市">
+      <scroll-view scroll-y="true" scroll-into-view="{{ leftCityId }}" class="scroll-view">
+        <!-- <van-index-bar class="indexBar" bind:select="selectIndex" highlight-color="#717276" sticky="{{false}}" sticky-offset-top="44"
+          index-list="{{ indexList }}">
+          <view wx:for="{{dataLists}}" id="{{key}}" wx:for-item="value" wx:for-index="key" wx:key="index">
+            <van-index-anchor class="anchor" index="{{key}}" />
+            <van-cell class="{{selectCityId==list.id?'cellActive':''}}" bind:tap="selectCity" data-id="{{list.id}}"
+              wx:for="{{value}}" wx:for-item="list" wx:key="id" title="{{list.title}}" />
+          </view>
+        </van-index-bar> -->
+        <view class="box-b pb-16 bg-white">
+          <!-- 列表值 -->
+          <view class="barLists" wx:for="{{ dataLists }}" id="{{ key }}" wx:for-item="value" wx:for-index="key"
+            wx:key="index">
+            <view class="anchor">{{ key }}</view>
+            <view class="barCells">
+              <view class="barCell {{selectCityId == list.id ? 'cellActive' : ''}}" bind:tap="selectCity"
+                data-id="{{ list.id }}" wx:for="{{ value }}" wx:for-item="list" wx:key="id">
+                {{ list.title }}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 右侧字母 -->
+        <view class="rightLetters">
+          <view class="letter" bind:tap="selectIndex" data-indexid="{{ item }}" data-index="{{ index }}"
+            wx:for="{{ indexList }}" wx:key="index">
+            <text>{{ item }}</text>
+            <view class="tips" wx:if="{{ leftCityIndex > -1 && leftCityIndex == index }}">
+              <text>{{ item }}</text>
+              <view class="iconfont icon-arrow_up"></view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </van-tab>
+    <van-tab title="地区" disabled="{{ disabledBool }}">
+      <scroll-view scroll-y="true" class="areaLists">
+        <view class="areaList" bind:tap="backChooseStore" data-areaid="">全部地区</view>
+        <view class="areaList" bind:tap="backChooseStore" data-areaid="{{item.id}}" wx:for="{{areaLists}}" wx:key="id">{{item.title}}</view>
+      </scroll-view>
+    </van-tab>
+  </van-tabs>
+</view>

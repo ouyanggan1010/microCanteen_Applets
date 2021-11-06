@@ -1,0 +1,102 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+    <!-- 顶部 -->
+    <view class="my_top">
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/myBg.jpg" />
+        <view class="code">
+            <text class="iconfont icon-ico fs-20"></text>
+            <text class="fs-12 ml-4">会员码</text>
+        </view>
+    </view>
+    <view class="twoPart">
+        <!-- 用户名、头像、我的信息相关的板块 -->
+        <view class="px-14 pb-30 bg-white borderR boxs">
+            <view class="d-flex posR">
+                <view class="pic">
+                    <view class="imgPos" bindtap="getUserInfo">
+                        <image mode="scaleToFill" src="{{userAvatar}}" />
+                    </view>
+                    <view class="grade">
+                        <text class="fs-14 fwb fontSI">V</text>
+                        <text class="fs-10 ml-2">1</text>
+                    </view>
+                </view>
+                <view class="ml-20 mt-10">
+                    <navigator class="d-flex ai-center" target="" url="" open-type="navigate">
+                        <text class="fs-20 fwb mr-4">{{userInfo.nickName ? userInfo.nickName : "匿名"}}</text>
+                        <text class="iconfont icon-iconfontyoujiantou-copy fs-12 text-black-71"></text>
+                    </navigator>
+                    <view class="mt-4">
+                      <view class="fs-12 text-gray-a2">当前成长值17/100</view>
+                      <view class="progress mt-2">
+                          <view class="length" style="width: 20%;"></view>
+                      </view>
+                    </view>
+                </view>
+                <navigator class="mark" target="" url="" open-type="navigate">
+                    <text class="fs-12 mr-4">会员权益</text>
+                    <text class="iconfont icon-iconfontyoujiantou-copy fs-8"></text>
+                </navigator>
+            </view>
+            <view class="textList">
+                <navigator target="" url="" open-type="navigate">
+                    <view class="nums">1000</view>
+                    <view class="text">奈雪券</view>
+                </navigator>
+                <navigator target="" url="" open-type="navigate">
+                    <view class="nums">10000</view>
+                    <view class="text">积分商城</view>
+                </navigator>
+                <navigator target="" url="" open-type="navigate">
+                    <view class="nums">1000.00</view>
+                    <view class="text">余额(元)</view>
+                </navigator>
+                <navigator target="" url="" open-type="navigate">
+                    <view class="nums">1000</view>
+                    <view class="text">礼品卡</view>
+                </navigator>
+            </view>
+        </view>
+        <!-- 我的服务 -->
+        <view class="pb-10 pt-12 bg-white borderR mt-14 boxs">
+            <view class="fs-14 fwb px-14">我的服务</view>
+            <view class="flexBox">
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-chuzhi"></view>
+                    <view class="text">储值有礼</view>
+                    <view class="prompt">HOT</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-qiandao"></view>
+                    <view class="text">积分签到</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-songxinyi"></view>
+                    <view class="text">送TA心意</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-kefu2"></view>
+                    <view class="text">联系客服</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-duihuan"></view>
+                    <view class="text">兑换中心</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-shouhuodizhi"></view>
+                    <view class="text">收货地址</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-liwu"></view>
+                    <view class="text">奈雪礼物</view>
+                </navigator>
+                <navigator class="box" target="" url="" open-type="navigate">
+                    <view class="iconfont icon-gengduo"></view>
+                    <view class="text">更多服务</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 提示 -->
+    <view class="text-gray-70 text-center mt-20 fs-14">会员卡适用于奈雪的茶和奈雪酒屋指定范围</view>
+</view>

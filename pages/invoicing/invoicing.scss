@@ -1,0 +1,55 @@
+/* pages/invoicing/invoicing.wxss */
+.invoicing {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 156rpx;
+  position: relative;
+  padding-top: 24rpx;
+  overflow-y: auto;
+  > .content {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    .changeRadio{
+      width: 100%;
+      .radioStyle{
+        width: 180rpx;
+      }
+    }
+  }
+  > .btns {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #f3f4f6;
+    height: 156rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .import,
+    .add {
+      width: 300rpx;
+      height: 92rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 92rpx;
+      font-size: 30rpx;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .import {
+      border: 2rpx solid #a7d700;
+      color: #a7d700;
+      background-color: #f3f4f6;
+    }
+    .add {
+      border: none;
+      color: #ffffff;
+      background-color: #a7d700;
+    }
+  }
+}

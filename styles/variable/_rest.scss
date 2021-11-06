@@ -1,0 +1,242 @@
+@charset "utf-8";
+//------------------------------定义颜色
+//$colorKey表示键，$color表示颜色值
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+//------------------------------text-align 对齐方式
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
+//------------------------------font size
+//生成字体大小
+$fonts: 6;
+@while $fonts < 100 {
+  .fs-#{$fonts} {
+    font-size: $fonts * $base-size;
+  }
+  $fonts: $fonts + 1;
+}
+//------------------------------flex
+.d-flex {
+  display: flex;
+}
+//默认是水平的，column垂直方向的
+.flex-column {
+  flex-direction: column;
+}
+$flex-jc: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "stretch": stretch,
+);
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+$flex-ai: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "stretch": stretch,
+);
+@each $key, $value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+//让所有弹性盒模型对象的子元素都有相同的长度，且忽略它们内部的内容；作用在display:flex的子元素
+$flexW: (1, 2, 3, 4, 5, 6, 7, 8);
+@each $var in $flexW {
+  .flex-#{$var} {
+    flex: $var;
+  }
+}
+
+//flex-grow 属性用于设置或检索弹性盒子的扩展比率
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+//弹性盒子，子元素换行方式
+$flexWraps: (
+  "nowrap": nowrap,
+  "wrap": wrap,
+  "reverse": wrap-reverse,
+);
+@each $wrapKey, $var in $flexWraps {
+  .fWrap-#{$wrapKey} {
+    flex-wrap: $var;
+  }
+}
+
+//------------------------------spacing
+//.mt-0 => margin-top level 0
+$mpsize: 0;
+@while $mpsize < 150 {
+  @each $typeKey, $type in $spacing-types {
+    .#{$typeKey}-#{$mpsize} {
+      #{$type}: $mpsize * $base-size;
+    }
+    // mx- my-
+    .#{$typeKey}x-#{$mpsize} {
+      #{$type}-left: $mpsize * $base-size;
+      #{$type}-right: $mpsize * $base-size;
+    }
+    .#{$typeKey}y-#{$mpsize} {
+      #{$type}-top: $mpsize * $base-size;
+      #{$type}-bottom: $mpsize * $base-size;
+    }
+    // .mt-0{margin-top: 0px}
+    @each $directionKey, $direction in $spacing-directions {
+      .#{$typeKey}#{$directionKey}-#{$mpsize} {
+        #{$type}-#{$direction}: $mpsize * $base-size;
+      }
+    }
+  }
+  $mpsize: $mpsize + 2;
+}
+//------------------------------display
+$displays: (
+  "inline": inline,
+  "inblock": inline-block,
+  "block": block,
+);
+@each $key, $var in $displays {
+  .d-#{$key} {
+    display: $var;
+  }
+}
+//------------------------------visibility
+$visibilitys: (
+  "H": hidden,
+  "V": visible,
+);
+@each $key, $var in $visibilitys {
+  .vi#{$key} {
+    visibility: $var;
+  }
+}
+//------------------------------float
+$floats: (left, right);
+@each $var in $floats {
+  .f-#{$var} {
+    float: $var;
+  }
+}
+//------------------------------滚动条
+$overflows: (
+  "H": hidden,
+  "A": auto,
+);
+$overflowsd: (x, y);
+@each $key, $var in $overflows {
+  .overflow#{$key} {
+    overflow: $var;
+  }
+  @each $vard in $overflowsd {
+    .overflow#{$key}-#{$vard} {
+      overflow-#{$vard}: $var;
+    }
+  }
+}
+//------------------------------width % height %
+$whPer: (1, 2, 3, 4, 5);
+@each $var in $whPer {
+  .widthPer-#{$var} {
+    width: calc(100% / #{$var});
+  }
+  .heightPer-#{$var} {
+    height: calc(100% / #{$var});
+  }
+}
+//------------------------------line-height
+$lineH: 10;
+@while $lineH < 500 {
+  .lineH-#{$lineH} {
+    line-height: $lineH * $base-size;
+  }
+  .heightDiv-#{$lineH} {
+    height: $lineH * $base-size;
+  }
+  .widthDiv-#{$lineH} {
+    width: $lineH * $base-size;
+  }
+  $lineH: $lineH + 2;
+}
+//------------------------------box-sizing
+$boxSizing: (
+  "b": border-box,
+  "c": content-box,
+);
+@each $key, $var in $boxSizing {
+  .box-#{$key} {
+    box-sizing: $var;
+  }
+}
+
+//------------------------------font-weight
+$fontWeight: (
+  "5": 500,
+  "6": 600,
+);
+@each $key, $var in $fontWeight {
+  .fw-#{$key} {
+    font-weight: $var;
+  }
+}
+
+// ------------------------------加粗
+.fwb {
+  font-weight: bold;
+}
+
+// ------------------------------一行省略
+.overOne {
+  @include overell;
+}
+.overOneN {
+  @include overmore(1);
+}
+
+// ------------------------------两行省略
+.overTwo {
+  @include overmore(2);
+}
+
+// ------------------------------换行，文字与单词换行
+//指定如果足够长得话，应该换行，尽量不拆分单词
+.wpword {
+  word-wrap: break-word;
+}
+// 不管单词的完整性，拆分单词换行
+.wbword {
+  word-break: break-word;
+}
+
+// ------------------------------手型
+.curp {
+  cursor: pointer;
+}
+
+// ------------------------------清除浮动
+.clear {
+  @include clearfix;
+}
+
+// ------------------------------position
+.posR {
+  position: relative;
+}

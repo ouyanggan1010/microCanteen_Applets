@@ -1,0 +1,58 @@
+<!--pages/mapAddress/mapAddress.wxml-->
+<view class="mapAddress">
+  <!-- 地图 -->
+  <map id="myMap" class="{{changeH?'minH':''}}" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" scale="16"
+    circles="{{ circles }}" max-scale="20.1" bindregionchange="regionchange" bindupdated="mapUpdated" bindmarkertap="markertap">
+    <!-- 按钮 -->
+    <cover-view class="btns">
+      <cover-view class="cancel" bindtap="cancelBack">取消</cover-view>
+      <cover-view class="complete" bindtap="changeData">完成</cover-view>
+    </cover-view>
+    <!-- 标记地图中心点 -->
+    <cover-view class="mapCenterMark" animation="{{ ani }}" hidden="{{!showImgMark}}">
+      <cover-image style="width: 100rpx; height: 100rpx" src="../../styles/images/datz.png"></cover-image>
+    </cover-view>
+  </map>
+  <!-- 列表 -->
+  <view class="cntList {{changeH?'minH':''}}">
+    <!-- 定位 -->
+    <view class="dingdian" bindtap="fixedPoint">
+      <view class="iconfont icon-dingdian"></view>
+    </view>
+    <!-- 上下拉的板块 -->
+    <view class="upDownPlate" wx:if="{{showUpDownPlate}}">
+      <view bindtap="downPlate">
+        <text class="iconfont icon-xiala"></text>
+      </view>
+    </view>
+    <!-- 空白搜索页 -->
+    <view class="searchCnt" hidden="{{!showSearch}}">
+      <van-search custom-class="searchCustom" cancel-class="searchCancel" placeholder-style="color:#8f8e93"
+        value="{{ searchVal }}" focus="{{focusBool}}" placeholder="搜索地点" show-action bind:cancel="searchCancel"
+        bind:change="searchChange" />
+      <!-- POI数组 -->
+      <view class="componentClass" bindtouchmove="touchChangeH" bindtouchstart="handletouchtart">
+        <MapPoiList id="mapSearchPoiList" type="1" mapCenterLat="{{mapCenterLat}}" mapCenterLng="{{mapCenterLng}}"
+          longitude="{{longitude}}" latitude="{{latitude}}" searchVal="{{searchVal}}"
+          bind:pMoveToLocation="moveToLocation" bind:pAddMarkers="addMarkers" bind:pChangeH="changeHEvent">
+        </MapPoiList>
+      </view>
+    </view>
+    <!-- 数据 -->
+    <view class="content" hidden="{{showSearch}}">
+      <!-- 假的搜索框 -->
+      <view class="fakeSearch" bindtap="searchTap">
+        <view>
+          <van-icon name="search" size="16px" />
+          <view class="ml-10">搜索地点</view>
+        </view>
+      </view>
+      <!-- POI数组 -->
+      <view class="componentClass" bindtouchmove="touchChangeH" bindtouchstart="handletouchtart">
+        <MapPoiList id="mapPoiList" type="2" mapCenterLat="{{mapCenterLat}}" mapCenterLng="{{mapCenterLng}}"
+          longitude="{{longitude}}" latitude="{{latitude}}" bind:pChangeH="changeHEvent" bind:pMoveToLocation="moveToLocation">
+        </MapPoiList>
+      </view>
+    </view>
+  </view>
+</view>

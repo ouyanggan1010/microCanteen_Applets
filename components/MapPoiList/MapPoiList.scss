@@ -1,0 +1,40 @@
+/* components/MapPoiList/MapPoiList.wxss */
+.scrollOne {
+  width: 100%;
+  height: 100%;
+  .poisOne {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+    .poi {
+      box-sizing: border-box;
+      padding: 20rpx 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .character {
+        flex: 1;
+      }
+      .picGou {
+        padding-left: 16rpx;
+        box-sizing: border-box;
+        width: 64rpx;
+      }
+    }
+    .dropDown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding-bottom: 16rpx;
+      color: #969799;
+      font-size: 28rpx;
+    }
+  }
+  .loading {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

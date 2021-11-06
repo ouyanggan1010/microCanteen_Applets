@@ -1,0 +1,27 @@
+/**app.wxss**/
+@import "./styles/iconfont/iconfont.wxss";
+@import 'miniprogram_npm/@vant/weapp/common/index.wxss';
+@import "./styles/variable/variable.wxss";
+/* 重置样式 */
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 添加变量
+sass中可以设置变量；
+wxss也可以设置变量:"--"+变量名
+--themeColor:#eb4450;
+*/
+page{
+  /* 定义统一的字体大小14px 如果设计稿是375px的宽度，750rpx = 375px，则1px = 2rpx */
+  font-size: 28rpx;
+  background-color: #f1f2f4;
+  color: #313131;
+}

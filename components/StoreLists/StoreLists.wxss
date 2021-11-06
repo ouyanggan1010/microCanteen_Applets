@@ -1,0 +1,76 @@
+/* components/StoreLists/StoreLists.wxss */
+.storeList {
+  background-color: #ffffff;
+  padding: 40rpx 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+}
+.storeList:nth-child(1) {
+  margin-top: 0;
+}
+.storeList.active {
+  border: 2rpx solid #a8cc2c;
+}
+.storeList > .tab_left {
+  border-right: 2rpx solid #e3e4e8;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.storeList > .tab_left .mark {
+  background-color: #a7d700;
+  font-size: 16rpx;
+  color: #ffffff;
+  height: 32rpx;
+  line-height: 32rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 8rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}
+.storeList > .tab_right {
+  width: 200rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.storeList > .tab_right .round {
+  background-color: #f2f5e8;
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}

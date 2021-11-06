@@ -1,0 +1,102 @@
+/* pages/switchCity/switchCity.wxss */
+.switchCity .cityNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+.switchCity .cityNav .van-tab {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 20%;
+}
+.switchCity .cellActive .van-cell {
+  --cell-background-color: #e2e5e7;
+}
+.switchCity .anchor .van-index-anchor {
+  --index-anchor-text-color: #717276;
+}
+.switchCity .indexBar .van-index-bar__sidebar {
+  right: 20rpx;
+}
+.switchCity .indexBar .van-index-bar__sidebar .van-index-bar__index {
+  --index-bar-index-line-height: 38rpx;
+  color: #717276;
+}
+.switchCity .areaLists {
+  height: calc(100vh - 44px);
+  background-color: #ffffff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 32rpx;
+}
+.switchCity .areaLists .areaList {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 24rpx 46rpx;
+  font-size: 30rpx;
+}
+.switchCity .scroll-view {
+  height: calc(100vh - 44px);
+  position: relative;
+}
+.switchCity .scroll-view .barLists {
+  width: 100%;
+}
+.switchCity .scroll-view .barLists .anchor {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 16rpx 46rpx;
+  color: #717276;
+  background-color: #f3f4f6;
+  font-size: 30rpx;
+}
+.switchCity .scroll-view .barLists .barCells > .barCell {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 24rpx 46rpx;
+  font-size: 30rpx;
+  background-color: #ffffff;
+}
+.switchCity .scroll-view .barLists .barCells > .barCell.cellActive {
+  background-color: #e2e5e7;
+}
+.switchCity .scroll-view .rightLetters {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-top: 22px;
+  right: 26rpx;
+  font-size: 22rpx;
+  color: #717276;
+  text-align: center;
+}
+.switchCity .scroll-view .rightLetters .letter {
+  line-height: 38rpx;
+  position: relative;
+}
+.switchCity .scroll-view .rightLetters .letter > .tips {
+  position: absolute;
+  top: -36rpx;
+  right: 70rpx;
+  background-color: #c9c9c9;
+  width: 110rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 60rpx;
+  text-align: center;
+}
+.switchCity .scroll-view .rightLetters .letter > .tips > .iconfont {
+  position: absolute;
+  top: 0;
+  right: -46rpx;
+  font-size: 90rpx;
+  color: #c9c9c9;
+}

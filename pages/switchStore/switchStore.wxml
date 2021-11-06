@@ -1,0 +1,17 @@
+<!--pages/switchStore/switchStore.wxml-->
+<view class="switchStore">
+    <view class="switch_top">
+        <view class="text-gray-91 fs-14">配送地址</view>
+        <view class="my-8 fs-18 overOne">{{ address }}</view>
+        <view class="fs-12 text-gray-91">由<text class="text-black-31 mx-4">{{ storeName }}</text>配送</view>
+    </view>
+    <view class="mt-20 fs-14 text-gray-91 px-14 box-b">当前地址可配送门店</view>
+    <view class="switch_lists">
+        <StoreLists
+          storeLists="{{ storeLists }}"
+          bind:makePhoneP="makePhone"
+          bind:toLocationP="toLocation"
+          bind:backMealP="backMeal"
+        ></StoreLists>
+    </view>
+</view>

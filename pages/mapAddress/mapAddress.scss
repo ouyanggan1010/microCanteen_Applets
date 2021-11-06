@@ -1,0 +1,138 @@
+/* pages/mapAddress/mapAddress.wxss */
+.mapAddress {
+  position: relative;
+  height: 100vh;
+  .btns {
+    position: absolute;
+    top: 60rpx;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .cancel {
+      font-size: 30rpx;
+      color: #313131;
+      background-color: #ffffff;
+      border-radius: 8rpx;
+      padding: 10rpx 24rpx;
+    }
+    .complete {
+      font-size: 30rpx;
+      color: #ffffff;
+      padding: 10rpx 24rpx;
+      background-color: #07c160;
+      border-radius: 8rpx;
+      margin-left: 40rpx;
+    }
+  }
+  #myMap {
+    width: 100%;
+    height: 800rpx;
+    position: relative;
+    transition: height .2s;
+    &.minH{
+      height: 500rpx;
+    }
+  }
+  .cntList {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 800rpx);
+    transition: height .2s;
+    background-color: #ffffff;
+    &.minH{
+      height: calc(100vh - 500rpx);
+    }
+    >.content {
+      height: 100%;
+    }
+  }
+  .dingdian {
+    position: absolute;
+    top: -200rpx;
+    right: 30rpx;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #919191;
+    .iconfont {
+      color: #1485ef;
+      font-size: 40rpx;
+    }
+  }
+  .mapCenterMark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100rpx;
+    margin-left: -50rpx;
+  }
+  .searchCnt {
+    height: 100%;
+    .searchCustom {
+      .van-cell {
+        color: #8f8e93;
+      }
+      .van-search__content {
+        border-radius: 20rpx !important;
+      }
+    }
+    .searchCancel {
+      color: #5a6c92;
+    }
+  }
+  .fakeSearch {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx 24rpx;
+    background: #ffffff;
+    > view {
+      background-color: #f7f8fa;
+      background-color: var(--search-background-color, #f7f8fa);
+      border-radius: 20rpx;
+      height: 68rpx;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8f8e93;
+    }
+  }
+  .componentClass {
+    width: 100%;
+    height: calc(100% - 108rpx);
+  }
+  .upDownPlate{
+    position: absolute;
+    top: -94rpx;
+    left: 0;
+    width: 100%;
+    height: 94rpx;
+    padding-top: 30rpx;
+    padding-bottom: 10rpx;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >view{
+      padding: 6rpx 24rpx;
+      background-color: #f4f4f4;
+      display: inline-block;
+      border-radius: 58rpx;
+      box-sizing: border-box;
+      .iconfont{
+        color: #2f2f2f;
+        font-size: 36rpx;
+      }
+    }
+  }
+}

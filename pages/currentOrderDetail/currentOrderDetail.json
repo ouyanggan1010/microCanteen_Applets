@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "CurrentOrderDetails":"../../components/CurrentOrderDetails/CurrentOrderDetails"
+  },
+  "navigationBarTitleText": "订单详情"
+}

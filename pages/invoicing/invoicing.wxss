@@ -1,0 +1,68 @@
+/* pages/invoicing/invoicing.wxss */
+.invoicing {
+  width: 100%;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 156rpx;
+  position: relative;
+  padding-top: 24rpx;
+  overflow-y: auto;
+}
+.invoicing > .content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.invoicing > .content .changeRadio {
+  width: 100%;
+}
+.invoicing > .content .changeRadio .radioStyle {
+  width: 180rpx;
+}
+.invoicing > .btns {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #f3f4f6;
+  height: 156rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.invoicing > .btns .import,
+.invoicing > .btns .add {
+  width: 300rpx;
+  height: 92rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 92rpx;
+  font-size: 30rpx;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.invoicing > .btns .import {
+  border: 2rpx solid #a7d700;
+  color: #a7d700;
+  background-color: #f3f4f6;
+}
+.invoicing > .btns .add {
+  border: none;
+  color: #ffffff;
+  background-color: #a7d700;
+}

@@ -1,0 +1,47 @@
+<!--components/OrderList/OrderList.wxml-->
+<view class="order_list">
+  <scroll-view wx:if="{{ !showLoading && arryData.length > 0 }}" bindscrolltolower="scrolltolower"
+    refresher-enabled refresher-triggered="{{triggered}}" bindrefresherpulling="refresherpulling" bindrefresherrestore="refresherrestore" scroll-y="true" class="scroll-view">
+    <view class="box-b px-14">
+      <!-- 有数据部分 -->
+      <view class="scroll-view-item" wx:for="{{ arryData }}" wx:key="id">
+        <view class="top">
+          <view>
+            <view class="title">{{item.title}}</view>
+            <view class="orderTime">下单时间：{{item.orderTime}}</view>
+          </view>
+          <navigator class="status" url="/pages/currentOrderDetail/currentOrderDetail?id={{item.id}}" open-type="navigate">
+            <text>{{item.statusText}}</text>
+            <view class="iconfont icon-iconfontyoujiantou-copy"></view>
+          </navigator>
+        </view>
+        <view class="cnt">
+          <view class="imgs">
+            <!-- 数组中前三个的图片 -->
+            <block wx:for="{{item.lists}}" wx:key="id" wx:for-item="list" wx:for-index="k" wx:if="{{k<3}}">
+              <image class="img" mode="scaleToFill" src="{{list.pic}}" />
+            </block>
+          </view>
+          <view class="texts">
+            <view class="one">共{{item.total}}件</view>
+            <view class="two">实付<text class="text-24 ml-4">￥{{item.allPrice}}</text></view>
+          </view>
+        </view>
+        <view class="invoicing" wx:if="{{item.status == 1}}">
+          <navigator class="bill" url="/pages/invoicing/invoicing" open-type="navigate">开发票</navigator>
+        </view>
+      </view>
+    </view>
+    <!-- 下拉加载部分 -->
+    <view class="dropDown">
+      <van-loading size="40rpx" type="spinner" wx:if="{{ poiBool }}">正在加载...</van-loading>
+      <view wx:if="{{ !poiBool }}">暂无数据</view>
+    </view>
+  </scroll-view>
+  <!-- 数据为空 -->
+  <view class="empty" wx:if="{{ showLoading || arryData.length <= 0 }}">
+    <view class="iconfont icon-kong1"></view>
+    <view class="text">您还没有历史订单哦~</view>
+    <navigator class="navTo" url="/pages/meal/meal" open-type="switchTab">去点餐</navigator>
+  </view>
+</view>

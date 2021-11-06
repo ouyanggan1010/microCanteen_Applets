@@ -1,0 +1,86 @@
+/* pages/myAddress/myAddress.wxss */
+.myAddress {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 156rpx;
+  position: relative;
+  padding-top: 24rpx;
+  overflow-y: auto;
+  .lists {
+    width: 100%;
+    padding: 0 30rpx;
+    .address {
+      background-color: #ffffff;
+      width: 100%;
+      border-radius: 10rpx;
+      height: 156rpx;
+      margin-bottom: 24rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30rpx;
+      .title {
+        display: flex;
+        align-items: center;
+        .default,
+        .tag {
+          padding: 2rpx 8rpx;
+          font-size: 20rpx;
+          margin-right: 8rpx;
+        }
+        .default {
+          border: 2rpx solid #a7d700;
+          color: #a7d700;
+        }
+        .tag {
+          border: 2rpx solid #3291da;
+          color: #3291da;
+        }
+      }
+    }
+  }
+  .btns {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #f3f4f6;
+    height: 156rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .import,
+    .add {
+      width: 300rpx;
+      height: 92rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 92rpx;
+    }
+    .import {
+      border: 2rpx solid #a7d700;
+      color: #a7d700;
+      background-color: #f3f4f6;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .add {
+      border: none;
+      color: #ffffff;
+      background-color: #a7d700;
+    }
+  }
+  .noLists{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 26rpx;
+    color: #717276;
+    padding-top: 180rpx;
+  }
+}

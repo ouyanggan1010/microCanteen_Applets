@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "SwitchMealType":"../../components/SwitchMealType/SwitchMealType",
+    "PopupTime":"../../components/PopupTime/PopupTime"
+  },
+  "navigationBarTitleText": "订单结算"
+}

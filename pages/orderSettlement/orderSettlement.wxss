@@ -1,0 +1,393 @@
+/* pages/orderSettlement/orderSettlement.wxss */
+.orderSettlement {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 20rpx 170rpx 20rpx;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+.orderSettlement > .top {
+  background-color: #ffffff;
+  border-radius: 14rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 28rpx 28rpx 0 28rpx;
+}
+.orderSettlement .commonBg {
+  background-color: #ffffff;
+  border-radius: 14rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.orderSettlement > .commodity {
+  background-color: #ffffff;
+  border-radius: 14rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30rpx 28rpx;
+}
+.orderSettlement > .commodity > .list {
+  margin-top: 44rpx;
+}
+.orderSettlement > .commodity > .list:nth-child(1) {
+  margin-top: 0;
+}
+.orderSettlement > .commodity > .cost {
+  margin-top: 44rpx;
+  border-top: 2rpx solid #e3e4e8;
+}
+.orderSettlement > .commodity .commonStyle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 28rpx;
+  color: #313131;
+}
+.orderSettlement > .commodity .labelChecked {
+  --checkbox-label-color: #313131;
+  font-size: 28rpx;
+}
+.orderSettlement > .commodity .customChecked {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.orderSettlement .borderb {
+  border-bottom: 2rpx solid #e3e4e8;
+}
+.orderSettlement .selfPhone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 28rpx 0;
+}
+.orderSettlement .selfRadio {
+  width: 100%;
+}
+.orderSettlement .selfRadio .viewRadio {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 40rpx 0;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.orderSettlement .selfRadio .viewRadio:nth-child(1) {
+  border-right: 2rpx solid #e3e4e8;
+}
+.orderSettlement .collocation {
+  padding: 30rpx 0;
+}
+.orderSettlement .collocation .scrollList {
+  margin-top: 30rpx;
+  white-space: nowrap;
+}
+.orderSettlement .collocation .scrollList .inter {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 28rpx;
+  display: inline-block;
+}
+.orderSettlement .collocation .scrollList .listView {
+  display: inline-block;
+  margin-left: 20rpx;
+  border: 2rpx solid #e3e4e8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 20rpx;
+  width: 260rpx;
+  min-height: 380rpx;
+  border-radius: 10rpx;
+}
+.orderSettlement .collocation .scrollList .listView.active {
+  border-color: #a7d500;
+}
+.orderSettlement .collocation .scrollList .listView:nth-child(1) {
+  margin-left: 0;
+}
+.orderSettlement .collocation .scrollList .listView > image {
+  width: 100%;
+  height: 260rpx;
+}
+.orderSettlement .collocation .scrollList .listView > .title {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10rpx;
+  font-size: 26rpx;
+  color: #313131;
+}
+.orderSettlement .collocation .scrollList .listView > .price {
+  font-size: 26rpx;
+  color: #313131;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10rpx;
+}
+.orderSettlement .collocation .scrollList .listView .count {
+  margin-top: 20rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.orderSettlement .collocation .scrollList .listView .count .iconfont {
+  font-size: 50rpx;
+}
+.orderSettlement .collocation .scrollList .listView .count .icon-iconset0187 {
+  color: #b3b7b8;
+}
+.orderSettlement .collocation .scrollList .listView .count .icon--jia {
+  color: #a7d500;
+}
+.orderSettlement .collocation .scrollList .listView .count .text {
+  font-size: 32rpx;
+  padding: 0 8rpx;
+  min-width: 70rpx;
+  text-align: center;
+}
+.orderSettlement .discount .coupon {
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff9e9;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 28rpx;
+  padding-left: 80rpx;
+}
+.orderSettlement .discount .coupon .icon-arrow_up {
+  position: absolute;
+  top: -34rpx;
+  left: -33rpx;
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
+  font-size: 100rpx;
+  color: #ffc211;
+}
+.orderSettlement .discount .coupon .text {
+  font-size: 18rpx;
+  color: #ffffff;
+  position: absolute;
+  top: 8rpx;
+  left: 6rpx;
+  font-weight: bold;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.orderSettlement .discount .couponCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #e1e5e7;
+}
+.orderSettlement .discount .couponCard .mark {
+  background-color: #a7d500;
+  border-radius: 7rpx;
+  padding: 4rpx 8rpx;
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 14rpx;
+}
+.orderSettlement .payMethod .overage {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30rpx 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 2rpx solid #e1e5e7;
+}
+.orderSettlement .payMethod .overage:nth-child(1) {
+  border: none;
+}
+.orderSettlement .payMethod .textIcon .iconfont {
+  color: #6bcc03;
+  font-size: 60rpx;
+  margin-right: 10rpx;
+}
+.orderSettlement .payMethod .textIcon .title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.orderSettlement .payMethod .textIcon.disabled .iconfont {
+  color: #c8c9cc;
+}
+.orderSettlement .payMethod .textIcon.disabled .title {
+  color: #c8c9cc;
+}
+.orderSettlement .payMethod .advertis {
+  color: #ffffff;
+  font-size: 28rpx;
+  background-color: #a7d500;
+  display: inline-block;
+  margin-top: 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  border-top-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+.orderSettlement .payMethod .advertis .iconfont {
+  margin: 0;
+  font-size: 22rpx;
+  color: #ffffff;
+  margin-left: 8rpx;
+  display: inline-block;
+}
+.orderSettlement .submitBtn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  height: 120rpx;
+  width: 100%;
+  -webkit-box-shadow: 0 -1px 5px #e3e4e6;
+          box-shadow: 0 -1px 5px #e3e4e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.orderSettlement .submitBtn .flex-2 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 30rpx;
+}
+.orderSettlement .submitBtn .flex-1 {
+  background-color: #a7d500;
+  height: 100%;
+  text-align: center;
+  line-height: 120rpx;
+  color: #ffffff;
+  font-size: 34rpx;
+}
+
+.payBtnPupop {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 40rpx;
+  position: relative;
+}
+.payBtnPupop .title {
+  color: #313131;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 70rpx;
+}
+.payBtnPupop .shop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 80rpx;
+}
+.payBtnPupop .address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20rpx;
+}
+.payBtnPupop .address > view {
+  font-size: 26rpx;
+  color: #919191;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.payBtnPupop .address > navigator {
+  margin-left: 40rpx;
+  border: 2rpx solid #a7d500;
+  height: 46rpx;
+  width: 120rpx;
+  line-height: 46rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #a7d500;
+}
+.payBtnPupop .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 80rpx;
+}
+.payBtnPupop .btn > view {
+  background-color: #a7d500;
+  width: 96%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  border-radius: 90rpx;
+}
+.payBtnPupop > .iconfont {
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+  font-size: 34rpx;
+  color: #919191;
+}

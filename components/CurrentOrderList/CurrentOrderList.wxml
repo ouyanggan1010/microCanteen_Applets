@@ -1,0 +1,38 @@
+<!--components/OrderList/OrderList.wxml-->
+<view class="currentOrder_list">
+  <scroll-view wx:if="{{ !showLoading && arryData.length > 0 }}" refresher-enabled
+    refresher-triggered="{{triggered}}" bindrefresherpulling="refresherpulling" bindrefresherrestore="refresherrestore"
+    scroll-y="true" class="scroll-view">
+    <view class="box-b px-14">
+      <!-- 有数据部分 -->
+      <view class="scroll-view-item" wx:for="{{ arryData }}" wx:key="id">
+        <view class="top">
+          <view class="d-flex ai-center">
+            <view class="statusType">{{item.pickText}}</view>
+            <view class="title ml-8">{{item.title}}</view>
+          </view>
+          <navigator class="status" url="/pages/currentOrderDetail/currentOrderDetail?id={{item.id}}" open-type="navigate">
+            <text>{{item.statusText}}</text>
+            <view class="iconfont icon-iconfontyoujiantou-copy"></view>
+          </navigator>
+        </view>
+        <view class="cnt">
+          <view class="imgs">
+            <!-- 数组中前三个的图片 -->
+            <block wx:for="{{item.lists}}" wx:key="id" wx:for-item="list" wx:for-index="k" wx:if="{{k<3}}">
+              <image class="img" mode="scaleToFill" src="{{list.pic}}" />
+            </block>
+          </view>
+          <view class="texts">共{{item.total}}件</view>
+        </view>
+        <view class="d-flex ai-center jc-between mt-8">
+          <view class="orderTime">下单时间：{{item.orderTime}}</view>
+          <view class="d-flex ai-center fs-14 text-black-31">
+            <text>实付</text>
+            <text class="ml-4">￥{{item.allPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

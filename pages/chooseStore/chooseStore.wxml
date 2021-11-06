@@ -1,0 +1,75 @@
+<!--pages/chooseStore/chooseStore.wxml-->
+<view class="chooseStore">
+  <van-tabs
+    color="#a7d500"
+    title-active-color="#252525"
+    title-inactive-color="#717276"
+    line-width="110rpx"
+    border
+    sticky
+  >
+    <van-tab title="选择门店">
+      <!-- 链接 -->
+      <view class="searchAddress">
+        <navigator class="address" url="/pages/switchCity/switchCity" open-type="navigate">
+          <text>{{cityArea}}</text>
+          <text class="iconfont icon-iconfontyoujiantou-copy"></text>
+        </navigator>
+        <navigator class="search" url="/pages/searchStore/searchStore" open-type="navigate">
+          <text class="iconfont icon-sousuo"></text>
+          <text>搜索</text>
+        </navigator>
+      </view>
+      <!-- 地图 -->
+      <view class="mapView">
+        <view class="map" wx:if="{{ showMap }}">
+          <!-- 地图 -->
+          <map
+            id="myMap"
+            latitude="{{ latitude }}"
+            longitude="{{ longitude }}"
+            markers="{{ markers }}"
+            scale="16"
+          >
+          </map>
+        </view>
+        <view class="upDown" bindtap="upDownMap">
+          <block wx:if="{{ showMap }}">
+            <text>收起地图</text>
+            <text class="iconfont icon-xiala1"></text>
+          </block>
+          <block wx:if="{{ !showMap }}">
+            <text>展开地图</text>
+            <text class="iconfont icon-xiala"></text>
+          </block>
+        </view>
+      </view>
+      <!-- 门店列表 -->
+      <view class="storeLists">
+        <StoreLists
+          storeLists="{{ storeLists }}"
+          activeId="{{ activeId }}"
+          bind:makePhoneP="makePhone"
+          bind:toLocationP="toLocation"
+          bind:backMealP="backMeal"
+        ></StoreLists>
+      </view>
+    </van-tab>
+    <van-tab title="常用门店">
+      <!-- 门店列表 -->
+      <view class="storeLists commonly" wx:if="{{ commonlyLists.length > 0 }}">
+        <StoreLists
+          storeLists="{{ commonlyLists }}"
+          bind:makePhoneP="makePhone"
+          bind:toLocationP="toLocation"
+          bind:backMealP="backMeal"
+        ></StoreLists>
+      </view>
+      <!-- 无常用门店 -->
+      <view class="noCommonly" wx:else>
+        <view class="iconfont icon-dianpu"></view>
+        <view class="text">暂无常用门店信息</view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

@@ -1,0 +1,38 @@
+/* pages/order/order.wxss */
+page {
+  // overflow: hidden;
+}
+.order {
+  .reset {
+    .van-tabs__scroll {
+      --tabs-nav-background-color: #f1f2f4;
+    }
+  }
+  .currentEmpty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 140rpx;
+    > .iconfont {
+      color: #a7d500;
+      font-size: 200rpx;
+    }
+    > .text {
+      color: #969799;
+      font-size: 28rpx;
+      margin-top: 8rpx;
+    }
+    > .navTo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #a7d500;
+      height: 76rpx;
+      width: 300rpx;
+      border-radius: 76rpx;
+      color: #ffffff;
+      font-size: 30rpx;
+      margin-top: 60rpx;
+    }
+  }
+}

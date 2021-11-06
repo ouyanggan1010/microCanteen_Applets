@@ -1,0 +1,65 @@
+/* pages/locationInformation/locationInformation.wxss */
+.locationInformation {
+  height: 100vh;
+  position: relative;
+}
+.locationInformation #myMap {
+  height: 83%;
+  width: 100%;
+}
+.locationInformation .dingdian {
+  position: absolute;
+  bottom: 22%;
+  right: 30rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 0 5px #919191;
+          box-shadow: 0 0 5px #919191;
+}
+.locationInformation .dingdian .iconfont {
+  color: #313131;
+  font-size: 40rpx;
+}
+.locationInformation .storeMsg {
+  background-color: #ffffff;
+  height: 17%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.locationInformation .storeMsg > .cnt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.locationInformation .storeMsg > .cnt .leftView {
+  width: 70%;
+}
+.locationInformation .storeMsg > .cnt .rightView > image {
+  width: 110rpx;
+  height: 110rpx;
+}

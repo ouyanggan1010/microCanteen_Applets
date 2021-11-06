@@ -1,0 +1,44 @@
+/* pages/order/order.wxss */
+.order .reset .van-tabs__scroll {
+  --tabs-nav-background-color: #f1f2f4;
+}
+.order .currentEmpty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 140rpx;
+}
+.order .currentEmpty > .iconfont {
+  color: #a7d500;
+  font-size: 200rpx;
+}
+.order .currentEmpty > .text {
+  color: #969799;
+  font-size: 28rpx;
+  margin-top: 8rpx;
+}
+.order .currentEmpty > .navTo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #a7d500;
+  height: 76rpx;
+  width: 300rpx;
+  border-radius: 76rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  margin-top: 60rpx;
+}

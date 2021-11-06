@@ -1,0 +1,56 @@
+/* components/PopupTime/PopupTime.wxss */
+.popupTime {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+.popupTime > .title {
+  background-color: #f9fafc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 28rpx 0;
+  text-align: center;
+  color: #717275;
+}
+.popupTime > .cnt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: calc(100% - 94rpx);
+}
+.popupTime > .cnt > .left {
+  width: 280rpx;
+  height: 100%;
+  background-color: #f3f4f6;
+  text-align: center;
+  overflow-y: auto;
+}
+.popupTime > .cnt > .left > .totalList {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 34rpx 0;
+  color: #717275;
+  font-weight: bold;
+  font-size: 26rpx;
+}
+.popupTime > .cnt > .left > .totalList.active {
+  background-color: #ffffff;
+  color: #252525;
+}
+.popupTime > .cnt > .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  text-align: center;
+}
+.popupTime > .cnt > .right > .partList {
+  color: #252525;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 26rpx 0;
+  font-size: 30rpx;
+}

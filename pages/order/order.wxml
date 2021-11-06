@@ -1,0 +1,85 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <van-tabs
+    active="{{ tabActiveP }}"
+    color="#a7d500"
+    title-active-color="#252525"
+    title-inactive-color="#717276"
+    line-width="140rpx"
+    sticky
+    bind:change="onChangeTabP"
+  >
+    <van-tab title="当前订单">
+      <view wx:if="{{ tabActiveP == 0 }}">
+        <!-- 多个订单显示订单列表 -->
+        <CurrentOrderList
+          wx:if="{{ !showLoading && currentOrder.length > 1 }}"
+          arryData="{{ currentOrder }}"
+          bind:getData="getCurrent"
+          bind:refresh="getCurrent"
+        ></CurrentOrderList>
+        <!-- 一个订单显示订单详情 -->
+        <CurrentOrderDetails
+          bind:chearTime="stopTime"
+          bind:parentCancel="getCurrent"
+          getId="{{ currentOrder[0].id }}"
+          wx:if="{{ !showLoading && currentOrder.length == 1 }}"
+        ></CurrentOrderDetails>
+        <!-- 数据为空 -->
+        <view class="currentEmpty" wx:if="{{showLoading || currentOrder.length <= 0}}">
+          <view class="iconfont icon-kong"></view>
+          <view class="text">您还没有点餐</view>
+          <view class="text">快去犒劳一下自己吧~</view>
+          <navigator class="navTo" url="/pages/meal/meal" open-type="switchTab"
+            >去点餐</navigator
+          >
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="历史订单">
+      <van-tabs
+        wx:if="{{ showChildTab }}"
+        active="{{ tabActiveC }}"
+        class="reset"
+        color="#a7d500"
+        title-active-color="#252525"
+        title-inactive-color="#717276"
+        line-width="80rpx"
+        sticky
+        offset-top="44"
+        bind:change="onChangeTabC"
+      >
+        <van-tab title="全部">
+          <OrderList
+            wx:if="{{ tabActiveC == 0 && tabActiveP == 1 }}"
+            type="all"
+            arryData="{{ totalOrder }}"
+            poiBool="{{ poiBoolTotal }}"
+            bind:getData="getHistoryTotal"
+            bind:refresh="getHistoryRefresh"
+          ></OrderList>
+        </van-tab>
+        <van-tab title="自取">
+          <OrderList
+            wx:if="{{ tabActiveC == 1 && tabActiveP == 1 }}"
+            type="self"
+            arryData="{{ selfOrder }}"
+            poiBool="{{ poiBoolSelf }}"
+            bind:getData="getHistorySelf"
+            bind:refresh="getHistoryRefresh"
+          ></OrderList>
+        </van-tab>
+        <van-tab title="外卖">
+          <OrderList
+            wx:if="{{ tabActiveC == 2 && tabActiveP == 1 }}"
+            type="takeout"
+            arryData="{{ takeoutOrder }}"
+            poiBool="{{ poiBoolTakeout }}"
+            bind:getData="getHistoryTakeout"
+            bind:refresh="getHistoryRefresh"
+          ></OrderList>
+        </van-tab>
+      </van-tabs>
+    </van-tab>
+  </van-tabs>
+</view>

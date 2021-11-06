@@ -1,0 +1,15 @@
+<!--components/SwitchMealType/SwitchMealType.wxml-->
+<view class="switchTab">
+  <view
+    class="default {{ type == 0 ? 'active' : '' }}"
+    bindtap="changePick"
+    data-type="0"
+    >自取</view
+  >
+  <view
+    class="default {{ type == 1 ? 'active' : '' }}"
+    bindtap="changePick"
+    data-type="1"
+    >外卖</view
+  >
+</view>

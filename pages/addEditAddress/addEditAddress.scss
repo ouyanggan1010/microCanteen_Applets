@@ -1,0 +1,68 @@
+/* pages/addEditAddress/addEditAddress.wxss */
+.addEditAddress {
+  padding: 0 28rpx;
+  .message {
+    padding-top: 32rpx;
+  }
+  .tag {
+    padding-top: 28rpx;
+    .soltTips {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > view {
+        border: 2rpx solid #a2a3a5;
+        width: 130rpx;
+        text-align: center;
+        height: 48rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+          border: 2rpx solid #a7d500;
+          background-color: #a7d500;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .editBtns,
+  .addBtns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150rpx;
+    .delete,
+    .safe {
+      width: 280rpx;
+      height: 80rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 80rpx;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 26rpx;
+    }
+    .delete {
+      border: 2rpx solid #a7d700;
+      color: #a7d700;
+      background-color: #f3f4f6;
+    }
+    .safe {
+      border: none;
+      color: #ffffff;
+      background-color: #a7d700;
+    }
+  }
+  .addBtns {
+    justify-content: center;
+    .safe {
+      width: 634rpx;
+    }
+  }
+}

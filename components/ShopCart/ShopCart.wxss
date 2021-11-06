@@ -1,0 +1,116 @@
+/* components/ShopCart/ShopCart.wxss */
+.shopCart {
+  padding-bottom: 20rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.shopCart .panel {
+  width: 90%;
+  background-color: #fff;
+  height: 112rpx;
+  -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 112rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 101;
+}
+.shopCart .panel .yesBtn {
+  width: 156rpx;
+  height: 100%;
+  border-bottom-right-radius: 112rpx;
+  border-top-right-radius: 112rpx;
+  background-color: #a7d500;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 112rpx;
+  text-align: center;
+}
+.shopCart .panel image {
+  position: absolute;
+  top: -40rpx;
+  left: 0;
+  width: 120rpx;
+  height: 120rpx;
+}
+.shopCart .panel .mark {
+  position: absolute;
+  top: -35rpx;
+  right: 0;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 100%;
+  background-color: #ffc211;
+  color: #fff;
+  font-size: 22rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box-top {
+  height: 68rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f9fafc;
+  font-size: 24rpx;
+  color: #76777b;
+  padding: 0 40rpx;
+}
+
+.cartsList {
+  width: 100%;
+  padding: 0 40rpx;
+  background-color: #fff;
+  max-height: 544rpx;
+  overflow-y: auto;
+}
+.cartsList .cart-list {
+  width: 100%;
+  padding: 30rpx 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: 2rpx solid #f3f4f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.cartsList .cart-list:nth-child(1) {
+  border: none;
+}
+.cartsList .cart-list .img {
+  width: 120rpx;
+  height: 120rpx;
+}
+.cartsList .cart-list > .flex-1 {
+  min-height: 120rpx;
+}

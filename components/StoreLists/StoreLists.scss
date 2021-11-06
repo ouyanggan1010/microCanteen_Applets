@@ -1,0 +1,50 @@
+/* components/StoreLists/StoreLists.wxss */
+.storeList {
+  background-color: #ffffff;
+  padding: 40rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  &.active {
+    border: 2rpx solid #a8cc2c;
+  }
+  > .tab_left {
+    border-right: 2rpx solid #e3e4e8;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    .mark {
+      background-color: #a7d700;
+      font-size: 16rpx;
+      color: #ffffff;
+      height: 32rpx;
+      line-height: 32rpx;
+      box-sizing: border-box;
+      padding: 0 8rpx;
+      text-align: center;
+      border-radius: 6rpx;
+    }
+  }
+  > .tab_right {
+    width: 200rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .round {
+      background-color: #f2f5e8;
+      border-radius: 50%;
+      width: 50rpx;
+      height: 50rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

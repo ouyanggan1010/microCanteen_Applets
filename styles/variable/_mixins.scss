@@ -1,0 +1,38 @@
+@charset "utf-8";
+// opacity透明度
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity * 100);
+}
+
+// clearfix清除浮动，float
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//一行省略
+@mixin overell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// 多行省略
+@mixin overmore($num) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+    overflow: hidden;
+  }
+
+//icon
+
+/*图标*/
+@mixin appicon($left, $top, $width, $height) {
+  background-position: $left $top;
+  width: $width;
+  height: $height;
+}

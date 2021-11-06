@@ -1,0 +1,47 @@
+<!--pages/invoicing/invoicing.wxml-->
+<view class="invoicing">
+  <view class="content">
+    <van-field title-width="5em" custom-style="height:6em;color:#595758;" label="发票类型" readonly>
+      <view slot="input" class="heightPer-1">
+        <view class="mb-4">{{type}}</view>
+        <view class="text-black-59 fs-12 wpword lineH-18">{{typeRemark}}</view>
+      </view>
+    </van-field>
+    <view class="mt-12">
+      <van-field title-width="5em" custom-style="color:#595758;" label="发票抬头">
+        <van-radio-group slot="input" class="heightPer-1 changeRadio" direction="horizontal" value="{{ radio }}"
+          bind:change="onChangeRadio">
+          <van-radio name="1" checked-color="#a7d500" custom-class="radioStyle">个人</van-radio>
+          <van-radio name="2" checked-color="#a7d500" custom-class="radioStyle">企业单位</van-radio>
+        </van-radio-group>
+      </van-field>
+      <van-cell-group wx:if="{{radio==1}}">
+        <van-field title-width="5em" clearable custom-style="color:#595758;" label="姓名" model:value="{{ personal.username }}"
+          placeholder="请输入姓名(必填)" />
+        <van-field title-width="5em" clearable custom-style="color:#595758;" label="邮箱地址" model:value="{{ personal.email }}"
+          placeholder="请输入邮箱地址(必填)" />
+        <van-field title-width="5em" clearable type="phone" custom-style="color:#595758;" label="手机号"
+          model:value="{{ personal.phone }}" border="{{ false }}" placeholder="请输入手机号(必填)" />
+      </van-cell-group>
+      <van-cell-group wx:if="{{radio==2}}">
+        <van-field title-width="5em" clearable custom-style="color:#595758;" label="公司名称" model:value="{{ enterprise.companyName }}"
+          placeholder="请输入公司名称(必填)" />
+        <van-field title-width="5em" clearable custom-style="color:#595758;" label="识别号" model:value="{{ enterprise.identifier }}"
+          placeholder="请输入识别号(必填)" />
+        <van-field title-width="5em" clearable custom-style="color:#595758;" label="邮箱地址" model:value="{{ enterprise.email }}"
+          placeholder="请输入邮箱地址(必填)" />
+        <van-field title-width="5em" clearable type="phone" custom-style="color:#595758;" label="手机号"
+          model:value="{{ enterprise.phone }}" border="{{ false }}" placeholder="请输入手机号(必填)" />
+      </van-cell-group>
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <view class="btns">
+    <button class="import" type="default" plain="true" bindtap="importBill">
+      导入发票抬头
+    </button>
+    <button class="add" type="default" plain="true" bindtap="submitBill">
+      提交
+    </button>
+  </view>
+</view>

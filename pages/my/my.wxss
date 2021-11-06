@@ -1,0 +1,210 @@
+/* pages/my/my.wxss */
+.my {
+  position: relative;
+  padding-bottom: 50rpx;
+}
+.my .my_top {
+  height: 600rpx;
+  position: relative;
+}
+.my .my_top .code {
+  position: absolute;
+  top: 180rpx;
+  right: 22rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10rpx 24rpx;
+  background-color: #ffffff;
+  border-radius: 36rpx;
+  color: #a8d403;
+}
+.my .my_top .imgPos {
+  width: 100%;
+  height: 100%;
+}
+.my .twoPart {
+  width: 100%;
+  padding: 0 24rpx;
+  position: relative;
+  margin-top: -50rpx;
+}
+.my .twoPart .boxs {
+  -webkit-box-shadow: 0 0 6rpx #dfdfdf;
+          box-shadow: 0 0 6rpx #dfdfdf;
+}
+.my .twoPart .borderR {
+  border-radius: 14rpx;
+}
+.my .twoPart .pic {
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+.my .twoPart .pic .imgPos {
+  position: absolute;
+  top: -30rpx;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 5rpx 20rpx #dfdfdf;
+          box-shadow: 0 5rpx 20rpx #dfdfdf;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 6rpx;
+  background-color: #ffffff;
+}
+.my .twoPart .pic .imgPos > image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.my .twoPart .pic .grade {
+  position: absolute;
+  bottom: 20rpx;
+  right: -14rpx;
+  -webkit-box-shadow: 0 5rpx 20rpx #dfdfdf;
+          box-shadow: 0 5rpx 20rpx #dfdfdf;
+  padding: 0 20rpx;
+  border-radius: 38rpx;
+  background-color: #ffffff;
+  color: #ffc61d;
+}
+.my .twoPart .pic .grade .fontSI {
+  font-style: italic;
+}
+.my .twoPart .progress {
+  background-color: #f5f6f1;
+  width: 260rpx;
+  height: 16rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+.my .twoPart .progress .length {
+  background-color: #a7d500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16rpx;
+  border-radius: 16rpx;
+}
+.my .twoPart .mark {
+  position: absolute;
+  right: -28rpx;
+  top: 20rpx;
+  background-color: #ffc211;
+  -webkit-box-shadow: 0 0 6rpx #ffc926;
+          box-shadow: 0 0 6rpx #ffc926;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom-left-radius: 38rpx;
+  border-top-left-radius: 38rpx;
+}
+.my .twoPart .textList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 40rpx 20rpx 0 20rpx;
+}
+.my .twoPart .textList > navigator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.my .twoPart .textList > navigator .nums {
+  font-size: 42rpx;
+  color: #313131;
+}
+.my .twoPart .textList > navigator .text {
+  font-size: 28rpx;
+  color: #707175;
+  margin-top: 8rpx;
+}
+.my .twoPart .flexBox {
+  width: 98%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 20rpx;
+}
+.my .twoPart .flexBox > .box {
+  width: 25%;
+  height: 100rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 180rpx;
+  position: relative;
+}
+.my .twoPart .flexBox > .box .iconfont {
+  font-size: 60rpx;
+  color: #a3c24d;
+}
+.my .twoPart .flexBox > .box .text {
+  font-size: 28rpx;
+  color: #707175;
+  margin-top: 8rpx;
+}
+.my .twoPart .flexBox > .box .prompt {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ef4b49;
+  color: #ffffff;
+  font-size: 22rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 38rpx;
+  border-bottom-left-radius: 0;
+}

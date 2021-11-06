@@ -1,0 +1,73 @@
+.swiper-class {
+  position: relative;
+}
+.swiper-class .text-reminder {
+  position: absolute;
+  top: var(--top);
+  left: 20rpx;
+  z-index: 9999;
+}
+.swiper-class swiper {
+  width: 100%;
+  height: 600rpx;
+}
+.swiper-class swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 60rpx;
+}
+
+.twoPart {
+  width: 100%;
+  padding: 0 24rpx;
+  position: relative;
+  margin-top: -50rpx;
+}
+.twoPart .borderR {
+  border-radius: 14rpx;
+}
+.twoPart .boxs {
+  -webkit-box-shadow: 0 0 6rpx #dfdfdf;
+          box-shadow: 0 0 6rpx #dfdfdf;
+}
+.twoPart .partThree {
+  position: relative;
+  padding: 22rpx 24rpx;
+  background-color: #ffffff;
+  border-radius: 14rpx;
+  overflow: hidden;
+  height: 240rpx;
+}
+.twoPart .partThree .imgPos {
+  position: absolute;
+  bottom: -28rpx;
+  right: -28rpx;
+  width: 146rpx;
+  height: 146rpx;
+}
+.twoPart .partThree .tips {
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  background-color: #ef4b49;
+  color: #fff;
+  display: inline-block;
+  padding: 6rpx 10rpx;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+}
+.twoPart .imgLink navigator {
+  width: 100%;
+  height: 240rpx;
+  margin-top: 24rpx;
+  position: relative;
+}
+.twoPart .imgLink navigator image {
+  width: 100%;
+  height: 100%;
+}
+.twoPart .imgLink navigator view {
+  position: absolute;
+  bottom: 14rpx;
+  left: 10rpx;
+  color: #fff;
+  font-size: 28rpx;
+}

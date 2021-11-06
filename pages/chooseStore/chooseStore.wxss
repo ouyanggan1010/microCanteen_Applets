@@ -1,0 +1,116 @@
+/* pages/chooseStore/chooseStore.wxss */
+.chooseStore .searchAddress {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 24rpx 30rpx;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.chooseStore .searchAddress > .address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.chooseStore .searchAddress > .address .iconfont {
+  color: #878b95;
+  font-size: 24rpx;
+  margin-left: 8rpx;
+}
+.chooseStore .searchAddress > .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f7f7f7;
+  width: 160rpx;
+  height: 68rpx;
+  border-radius: 68rpx;
+  font-size: 28rpx;
+  color: #9fa3a5;
+}
+.chooseStore .searchAddress > .search .iconfont {
+  color: #9fa3a5;
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+.chooseStore .mapView > .map {
+  height: 440rpx;
+  width: 100%;
+}
+.chooseStore .mapView > .map #myMap {
+  height: 100%;
+  width: 100%;
+}
+.chooseStore .mapView > .upDown {
+  padding: 16rpx 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #595758;
+  background-color: #ffffff;
+}
+.chooseStore .mapView > .upDown .iconfont {
+  color: #9a9a9a;
+  font-size: 26rpx;
+  margin-left: 8rpx;
+}
+.chooseStore .storeLists {
+  padding: 0 28rpx 30rpx 28rpx;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: calc(100vh - 44px - 116rpx - 510rpx - 30rpx);
+  overflow-y: auto;
+  margin-top: 30rpx;
+}
+.chooseStore .storeLists.commonly {
+  height: auto;
+  padding: 30rpx 28rpx;
+  margin-top: 0;
+}
+.chooseStore .noCommonly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 140rpx;
+}
+.chooseStore .noCommonly > .iconfont {
+  color: #a7d500;
+  font-size: 200rpx;
+}
+.chooseStore .noCommonly > .text {
+  color: #999696;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}

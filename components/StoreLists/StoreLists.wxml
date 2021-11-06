@@ -1,0 +1,44 @@
+<!--components/StoreLists/StoreLists.wxml-->
+<view
+  class="storeList {{ activeId == item.id ? 'active' : '' }}"
+  bindtap="backMeal"
+  data-storename="{{ item.storeName }}"
+  wx:for="{{ storeLists }}"
+  wx:key="id"
+>
+  <view class="tab_left">
+    <view class="d-flex ai-center">
+      <text class="fs-16">{{ item.storeName }}</text>
+      <view class="mark ml-10">{{ item.mark }}</view>
+    </view>
+    <view class="d-flex mt-8">
+      <view class="fs-12 text-gray-91 iconfont icon-weizhi lineH-20"></view>
+      <view class="ml-8 fs-12 text-gray-91 lineH-20">{{
+        item.storeAddress
+      }}</view>
+    </view>
+    <view class="d-flex mt-6">
+      <view class="fs-12 text-gray-91 iconfont icon-shijian lineH-20"></view>
+      <view class="ml-8 fs-12 text-gray-91 lineH-20"
+        >营业时间：{{ item.openTime }}</view
+      >
+    </view>
+  </view>
+  <view class="tab_right">
+    <view class="fs-14">去下单</view>
+    <view class="fs-10 text-gray-91 mt-6">距离{{ item.distance }}</view>
+    <view class="fs-10 text-gray-91 mt-2" wx:if="{{item.deliveryFee}}">配送费{{ item.deliveryFee }}元</view>
+    <view class="d-flex jc-between mt-10 widthPer-1 box-b px-18">
+      <view
+        class="round"
+        catchtap="makePhone"
+        data-phone="{{ item.storePhone }}"
+      >
+        <text class="fs-12 text-green-a7 iconfont icon-dianhua1"></text>
+      </view>
+      <view class="round" catchtap="toLocation" data-store="{{ item }}">
+        <text class="fs-12 text-green-a7 iconfont icon-weizhi1"></text>
+      </view>
+    </view>
+  </view>
+</view>

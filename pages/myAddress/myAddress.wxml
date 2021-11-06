@@ -1,0 +1,91 @@
+<!--pages/myAddress/myAddress.wxml-->
+<view class="myAddress">
+  <!-- 地址列表 -->
+  <view class="lists" wx:if="{{ listsData.length > 0 }}">
+    <view
+      class="address"
+      wx:for="{{ listsDataYes }}"
+      wx:key="id"
+      bindtap="clickAddress"
+      data-type="0"
+      data-list="{{ item }}"
+    >
+      <view class="flex-1">
+        <view class="fs-14 title">
+          <view class="default" wx:if="{{ item.isDefault }}">默认</view>
+          <view class="tag" wx:if="{{ item.tag }}">{{ item.tag }}</view>
+          <text class="fwb pr-10 overOneN flex-1"
+            >{{item.address}}</text
+          >
+        </view>
+        <view class="fs-12 text-black-71 mt-6">
+          <text>{{item.name}}</text>
+          <text class="ml-4">{{item.sex}}</text>
+          <text class="ml-4">{{item.phone}}</text>
+        </view>
+      </view>
+      <navigator
+        class="iconfont icon-bianji1 fs-20 text-green-a7"
+        target=""
+        url="{{'/pages/addEditAddress/addEditAddress?type=1&id='+item.id}}"
+        open-type="navigate"
+        catchtap="emptyFunc"
+      ></navigator>
+    </view>
+    <view wx:if="{{ listsDataNo.length > 0 }}" class="fs-12 text-black-71 mb-12"
+      >以下地址超出<text class="text-black-31 fwb">{{ store }}</text
+      >配送范围</view
+    >
+    <view
+      class="address"
+      wx:for="{{ listsDataNo }}"
+      wx:key="id"
+      bindtap="clickAddress"
+      data-type="1"
+      data-list="{{ item }}"
+    >
+      <view class="flex-1">
+        <view class="fs-14 title">
+          <view class="default" wx:if="{{ item.isDefault }}">默认</view>
+          <view class="tag" wx:if="{{ item.tag }}">{{ item.tag }}</view>
+          <text class="fwb pr-10 overOneN flex-1"
+            >{{ item.address }}</text
+          >
+        </view>
+        <view class="fs-12 text-black-71 mt-6">
+          <text>{{ item.name }}</text>
+          <text class="ml-4">{{ item.sex }}</text>
+          <text class="ml-4">{{ item.phone }}</text>
+        </view>
+      </view>
+      <navigator
+        class="iconfont icon-bianji1 fs-20 text-green-a7"
+        target=""
+        url="{{'/pages/addEditAddress/addEditAddress?type=1&id='+item.id}}"
+        open-type="navigate"
+        catchtap="emptyFunc"
+      ></navigator>
+    </view>
+  </view>
+  <!-- 无地址信息 -->
+  <view wx:else class="noLists">
+    <text class="iconfont icon-tubiaozhizuomoban fs-98 text-green-a7"></text>
+    <text class="mt-20">暂无地址信息</text>
+    <text class="mt-6">请点击底部按钮添加地址信息</text>
+  </view>
+  <!-- 按钮 -->
+  <view class="btns">
+    <button class="import" type="default" plain="true" bindtap="chooseAddress">
+      <text class="iconfont icon-weixin fs-24"></text>
+      <text class="fs-14 ml-8">微信导入</text>
+    </button>
+    <navigator
+      class="add"
+      url="/pages/addEditAddress/addEditAddress?type=2"
+      open-type="navigate"
+    >
+      <text class="iconfont icon-hao fs-16"></text>
+      <text class="fs-14 ml-8">新增地址</text>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/currentOrderDetail/currentOrderDetail.wxml-->
+<view class="currentOrderDetail">
+    <CurrentOrderDetails id="orderDetail" getId="{{ orderId }}" bind:chearTime="stopTime" bind:parentCancel="restGetOrder" ></CurrentOrderDetails>
+</view>

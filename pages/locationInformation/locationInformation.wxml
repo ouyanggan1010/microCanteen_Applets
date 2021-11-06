@@ -1,0 +1,30 @@
+<!--pages/locationInformation/locationInformation.wxml-->
+<view class="locationInformation">
+  <!-- 地图 -->
+  <map
+    id="myMap"
+    latitude="{{ store.lat }}"
+    longitude="{{ store.long }}"
+    markers="{{ markers }}"
+    scale="16"
+    show-location
+    show-scale
+  >
+  </map>
+  <!-- 定位 -->
+  <view class="dingdian" bindtap="fixedPoint">
+    <view class="iconfont icon-dingdian"></view>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="storeMsg">
+    <view class="cnt">
+      <view class="leftView">
+          <view class="fs-16 fwb">海口吾悦广场店</view>
+          <view class="text-gray-91 mt-8">海南省海口市龙华区迎宾路18号海口新城吾悦广场一层1026-1027铺</view>
+      </view>
+      <view class="rightView">
+        <image src="../../styles/images/daohan.png" mode="scaleToFill"></image>
+      </view>
+    </view>
+  </view>
+</view>

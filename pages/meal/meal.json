@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "FoodDetailBox":"../../components/FoodDetailBox/FoodDetailBox",
+    "ShopCart":"../../components/ShopCart/ShopCart",
+    "FightOrder":"../../components/FightOrder/FightOrder",
+    "GoodsList":"../../components/GoodsList/GoodsList",
+    "SwitchMealType":"../../components/SwitchMealType/SwitchMealType"
+  },
+  "navigationStyle":"custom"
+}

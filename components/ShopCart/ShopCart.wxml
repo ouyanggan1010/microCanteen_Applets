@@ -1,0 +1,46 @@
+<!--components/ShopCart/ShopCart.wxml-->
+<view class="shopCart">
+  <view class="panel">
+    <view class="ml-20 d-flex ai-center heightPer-1">
+      <view class="heightPer-1 posR widthDiv-60">
+        <image src="../../styles/images/shopBox.png" bindtap="targgerBox"></image>
+        <view class="mark">{{ totalNum }}</view>
+      </view>
+      <view class="fs-12 text-black-31 ml-10">￥<text class="fwb fs-16">{{ totalPric }}</text></view>
+    </view>
+    <view class="yesBtn" bind:tap="jumpOrderSettlement">选好了</view>
+  </view>
+</view>
+<!-- 购物车列表 -->
+<van-popup show="{{ show }}" round position="bottom" custom-style="width: 100%;padding-bottom:172rpx"
+  bind:close="onClose" overlay-style="background-color: rgba(0,0,0,.4);">
+  <view class="box-top" bindtap="clearShopCart">
+    <text class="iconfont icon-shanchu"></text>
+    <text class="ml-4">清空购物车</text>
+  </view>
+  <view class="cartsList">
+    <view class="cart-list" wx:for="{{ shopCarts }}" wx:key="id">
+      <!-- 图片 -->
+      <view class="img">
+        <image style="width: 100%; height: 100%" src="{{ item.pic }}" bindtap="targgerBox"></image>
+      </view>
+      <view class="flex-1 ml-16 d-flex flex-column jc-between">
+        <!-- 标题 -->
+        <view class="fs-15">
+          <view class="overOneN">{{ item.title }}</view>
+          <!-- <view class="fs-11 text-gray-a2 pt-4">口沙发开始减肥杀菌法卡萨街坊邻居阿双方书法家口撒九分裤</view> -->
+        </view>
+        <!-- 价格/加减 -->
+        <view class="d-flex ai-end jc-between mt-10">
+          <view class="fs-13 text-black-31">￥<text class="fs-12">{{ item.price }}</text></view>
+          <view class="d-flex ai-center count">
+            <text class="iconfont icon-iconset0187" wx:if="{{ item.num > 0 }}" catchtap="changeShopCart" data-type="0"
+              data-cid="{{ item.id }}"></text>
+            <text class="text" wx:if="{{ item.num > 0 }}">{{ item.num }}</text>
+            <text class="iconfont icon--jia" catchtap="changeShopCart" data-type="1" data-cid="{{ item.id }}"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</van-popup>

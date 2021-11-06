@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "OrderList":"../../components/OrderList/OrderList",
+    "CurrentOrderList":"../../components/CurrentOrderList/CurrentOrderList",
+    "CurrentOrderDetails":"../../components/CurrentOrderDetails/CurrentOrderDetails"
+  },
+  "navigationBarTitleText":"奈雪的茶"
+}

@@ -1,0 +1,28 @@
+/* components/FightOrder/FightOrder.wxss */
+.fightOrdr {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40rpx 0;
+  text-align: center;
+}
+.fightOrdr .cnt {
+  padding: 80rpx 0 40rpx 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+.fightOrdr .cnt .item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.fightOrdr .cnt .item:nth-child(1) {
+  border-right: 2rpx solid #e1e5e6;
+}

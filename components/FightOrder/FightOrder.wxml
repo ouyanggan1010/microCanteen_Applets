@@ -1,0 +1,17 @@
+<!--components/FightOrder/FightOrder.wxml-->
+<view class="fightOrdr">
+  <view class="fs-18 fwb">请选择拼单方式</view>
+  <view class="fs-12 text-black-71 mt-10"
+    >一起拼单平摊运费，智能分账超省心</view
+  >
+  <view class="cnt">
+    <navigator class="item" target="" url="" open-type="navigate">
+      <text class="iconfont icon-naicha fs-46 text-green-a7"></text>
+      <view class="fs-14 fwb mt-4">自取</view>
+    </navigator>
+    <navigator class="item" target="" url="" open-type="navigate">
+      <text class="iconfont icon-waimai fs-46 text-green-a7"></text>
+      <view class="fs-14 fwb mt-4">外卖</view>
+    </navigator>
+  </view>
+</view>

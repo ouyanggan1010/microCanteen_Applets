@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "StoreLists":"../../components/StoreLists/StoreLists"
+  },
+  "navigationBarTitleText": "选择门店"
+}
