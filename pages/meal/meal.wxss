@@ -1,39 +1,50 @@
 .meal-top {
   background-color: #fff;
-  height: var(--lineH);
   padding-top: var(--padTop);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
 }
+
 .meal-top .title {
   text-align: center;
   font-size: 14px;
   color: #000000;
   line-height: var(--lineH);
 }
+
 .meal-top .posA {
   background-color: #a7d500;
   position: absolute;
-  top: var(--padTop);
+  top: calc(var(--padTop) + (var(--lineH) - 26px) / 2);
   left: 0;
   color: #fff;
-  font-size: 28rpx;
-  height: 60rpx;
-  padding: 10rpx 20rpx 10rpx 50rpx;
-  border-bottom-right-radius: 30rpx;
-  border-top-right-radius: 30rpx;
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 10px 0 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
 }
+
 .meal-top .posA .iconfont {
   position: absolute;
-  left: -24rpx;
-  top: -10rpx;
-  font-size: 74rpx;
+  left: -12px;
+  top: -2px;
+  font-size: 37px;
   color: #ffe866;
 }
 
 .meal-addressType {
   background-color: #fff;
-  padding: 20rpx;
+  padding: 0 20rpx;
+  height: 120rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .meal-addressType .overOne {
   max-width: 450rpx;
 }
@@ -56,26 +67,30 @@
 }
 
 .meal-lists {
-  height: calc(100vh - 80rpx - 122rpx - 128rpx);
+  height: calc(100vh - 80rpx - 122rpx - (var(--padTop) + var(--lineH)));
 }
 
 .tag {
   margin-left: -10rpx;
   margin-top: 2rpx;
 }
+
 .tag view {
   padding: 4rpx 8rpx;
   margin-left: 10rpx;
   margin-top: 10rpx;
 }
+
 .tag .pink {
   background-color: #fbf2f3;
   color: #f4a1b3;
 }
+
 .tag .gray {
   background-color: #f6f6f6;
   color: #a3a4a8;
 }
+
 .tag .yellow {
   background-color: #f9f5e9;
   color: #e2b769;
@@ -90,6 +105,7 @@
           justify-content: space-between;
   margin-bottom: 60rpx;
 }
+
 .meal-food .format {
   background-color: #a7d500;
   color: #fff;
@@ -103,12 +119,15 @@
 .count .iconfont {
   font-size: 40rpx;
 }
+
 .count .icon-iconset0187 {
   color: #b3b7b8;
 }
+
 .count .icon--jia {
   color: #a7d500;
 }
+
 .count .text {
   font-size: 28rpx;
   padding: 0 8rpx;

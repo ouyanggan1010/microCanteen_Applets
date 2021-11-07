@@ -12,6 +12,7 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
 .shopCart .panel {
   width: 90%;
   background-color: #fff;
@@ -27,6 +28,7 @@
           justify-content: space-between;
   z-index: 101;
 }
+
 .shopCart .panel .yesBtn {
   width: 156rpx;
   height: 100%;
@@ -38,6 +40,7 @@
   line-height: 112rpx;
   text-align: center;
 }
+
 .shopCart .panel image {
   position: absolute;
   top: -40rpx;
@@ -45,6 +48,7 @@
   width: 120rpx;
   height: 120rpx;
 }
+
 .shopCart .panel .mark {
   position: absolute;
   top: -35rpx;
@@ -90,6 +94,7 @@
   max-height: 544rpx;
   overflow-y: auto;
 }
+
 .cartsList .cart-list {
   width: 100%;
   padding: 30rpx 0;
@@ -104,13 +109,16 @@
           align-items: center;
   position: relative;
 }
+
 .cartsList .cart-list:nth-child(1) {
   border: none;
 }
+
 .cartsList .cart-list .img {
   width: 120rpx;
   height: 120rpx;
 }
+
 .cartsList .cart-list > .flex-1 {
   min-height: 120rpx;
 }

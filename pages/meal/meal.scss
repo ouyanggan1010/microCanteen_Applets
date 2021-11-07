@@ -1,7 +1,8 @@
 .meal-top {
   background-color: #fff;
-  height: var(--lineH);
+  // height: var(--lineH);
   padding-top: var(--padTop);
+  box-sizing: border-box;
   position: relative;
   .title {
     text-align: center;
@@ -12,19 +13,21 @@
   .posA {
     background-color: #a7d500;
     position: absolute;
-    top: var(--padTop);
+    top: calc(var(--padTop) + (var(--lineH) - 26px) / 2);
     left: 0;
     color: #fff;
-    font-size: 28rpx;
-    height: 60rpx;
-    padding: 10rpx 20rpx 10rpx 50rpx;
-    border-bottom-right-radius: 30rpx;
-    border-top-right-radius: 30rpx;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px 0 25px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     .iconfont {
       position: absolute;
-      left: -24rpx;
-      top: -10rpx;
-      font-size: 74rpx;
+      left: -12px;
+      top: -2px;
+      font-size: 37px;
       color: #ffe866;
     }
   }
@@ -32,7 +35,9 @@
 
 .meal-addressType {
   background-color: #fff;
-  padding: 20rpx;
+  padding: 0 20rpx;
+  height: 120rpx;
+  box-sizing: border-box;
   .overOne {
     max-width: 450rpx;
   }
@@ -68,7 +73,7 @@
   color: #a7d500;
 }
 .meal-lists {
-  height: calc(100vh - 80rpx - 122rpx - 128rpx);
+  height: calc(100vh - 80rpx - 122rpx - (var(--padTop) + var(--lineH)));
 }
 .tag {
   margin-left: -10rpx;

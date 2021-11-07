@@ -1,17 +1,15 @@
 <view class="goodsList">
     <!-- 左部分 -->
-    <scroll-view class="flex-2 bg-gray-f5" scroll-y enhanced show-scrollbar="{{false}}"
-        scroll-into-view="{{'idLeft_' + (itemTypeR + 1)}}" scroll-with-animation>
+    <scroll-view class="flex-2 bg-gray-f5" scroll-y enhanced show-scrollbar="{{false}}">
         <view class="pb-78">
-            <view id="{{ 'idLeft_' + (index + 1) }}" wx:for="{{ listsLeft }}" wx:key="id" bindtap="changeItem"
-                data-index="{{ index }}" class="leftItem {{ activeR == index ? 'active' : '' }}">{{ item.name }}<view
-                    class="tips" wx:if="{{item.tips}}">{{item.tips}}</view>
+            <view id="{{ 'idLeft_' + (index + 1) }}" wx:for="{{ listsLeft }}" wx:key="id" bindtap="changeItem" data-index="{{ index }}" class="leftItem {{ activeR == index ? 'active' : '' }}">
+                {{ item.name }}
+                <view class="tips" wx:if="{{item.tips}}">{{item.tips}}</view>
             </view>
         </view>
     </scroll-view>
     <!-- 右部分 -->
-    <scroll-view class="flex-6 bg-white" scroll-y enhanced show-scrollbar="{{false}}" bindscroll="foodScroolEnd"
-        scroll-into-view="{{'idRight_' + (itemTypeL + 1)}}" scroll-with-animation>
+    <scroll-view class="flex-6 bg-white" scroll-y enhanced show-scrollbar="{{false}}" binddragstart="foodDragstart" bindscroll="foodScroolEnd" scroll-into-view="{{'idRight_' + itemTypeL}}" scroll-with-animation>
         <view class="pb-78 px-10">
             <!-- 轮播 -->
             <swiper indicator-dots autoplay circular id="idRight_0">
@@ -25,45 +23,50 @@
             <view id="{{ 'idRight_' + (index + 1) }}" wx:for="{{ listsRight }}" wx:key="id">
                 <view class="fs-12 mb-14 text-black-71 lineH-36 heightDiv-36">{{item.name}}</view>
                 <!-- 商品循环 -->
-                <view class="meal-food" wx:for="{{ item.children }}" wx:key="id" wx:for-item="child" wx:for-index="j"
-                    wx:if="{{ !child.isSoldOut || (child.isSoldOut && j < (item.children.length - (item.showHide ? 0 : (item.outNum - 1)))) }}"
-                    bindtap="foodModal" data-pindex="{{index}}" data-cindex="{{j}}">
+                <view class="meal-food" wx:for="{{ item.children }}" wx:key="id" wx:for-item="child" wx:for-index="j" wx:if="{{ !child.isSoldOut || (child.isSoldOut && j < (item.children.length - (item.showHide ? 0 : (item.outNum - 1)))) }}" bindtap="foodModal" data-pindex="{{index}}" data-cindex="{{j}}">
                     <image lazy-load style="width: 160rpx; height: 160rpx;" src="{{child.pic}}" />
                     <view class="flex-1 ml-12">
                         <!-- 标题 -->
-                        <view class="fs-15 overOneN {{child.isSoldOut?'text-gray-a2':''}}">{{child.title}}</view>
+                        <view class="fs-15 overOneN {{child.isSoldOut?'text-gray-a2':''}}">
+                            {{child.title}}
+                        </view>
                         <!-- tag -->
                         <view class="d-flex ai-center fWrap-wrap tag fs-11">
-                            <view class="pink" wx:if="{{child.tagPink}}" wx:for="{{ child.tagPink }}" wx:key="*this"
-                                wx:for-item="tagPink" wx:for-index="i">{{tagPink}}</view>
+                            <view class="pink" wx:if="{{child.tagPink}}" wx:for="{{ child.tagPink }}" wx:key="*this" wx:for-item="tagPink" wx:for-index="i">
+                                {{tagPink}}
+                            </view>
                             <view class="gray" wx:if="{{child.tagGray}}">{{child.tagGray}}</view>
-                            <view class="yellow" wx:if="{{child.tagYellow}}">{{child.tagYellow}}</view>
+                            <view class="yellow" wx:if="{{child.tagYellow}}">
+                                {{child.tagYellow}}
+                            </view>
                         </view>
                         <!-- 描述 -->
                         <view class="fs-12 text-gray-a2 overTwo mt-6">{{child.detail}}</view>
                         <!-- 价格与操作 -->
                         <view class="d-flex jc-between ai-center mt-10">
-                            <view class="fs-10 {{child.isSoldOut?'text-gray-a2':''}}">￥<text
-                                    class="fwb fs-16">{{child.price}}</text>
+                            <view class="fs-10 {{child.isSoldOut?'text-gray-a2':''}}">
+                                ￥
+                                <text class="fwb fs-16">{{child.price}}</text>
                             </view>
                             <!-- 选规格 -->
                             <!-- <view class="format">选规格</view> -->
                             <!-- 加减 -->
                             <view class="d-flex ai-center count" wx:if="{{!child.isSoldOut && restDate}}">
-                                <text class="iconfont icon-iconset0187" wx:if="{{child.buyNum>0}}"
-                                    catchtap="changeShopCart" data-type="0" data-cid="{{ child.id }}"></text>
-                                <text class="text" wx:if="{{child.buyNum>0}}">{{child.buyNum}}</text>
-                                <text class="iconfont icon--jia" catchtap="changeShopCart" data-type="1"
-                                    data-cid="{{ child.id }}"></text>
+                                <text class="iconfont icon-iconset0187" wx:if="{{child.buyNum>0}}" catchtap="changeShopCart" data-type="0" data-cid="{{ child.id }}"></text>
+                                <text class="text" wx:if="{{child.buyNum>0}}">
+                                    {{child.buyNum}}
+                                </text>
+                                <text class="iconfont icon--jia" catchtap="changeShopCart" data-type="1" data-cid="{{ child.id }}"></text>
                             </view>
                             <!-- 已售罄 -->
-                            <view class="fs-12 text-gray-a2" wx:if="{{ child.isSoldOut && restDate }}">已售罄</view>
+                            <view class="fs-12 text-gray-a2" wx:if="{{ child.isSoldOut && restDate }}">
+                                已售罄
+                            </view>
                         </view>
                     </view>
                 </view>
                 <!-- 查看更多售罄商品 -->
-                <view class="meal-lookMore" wx:if="{{item.outNum > 1}}" bindtap="showHideSoldOut"
-                    data-pindex="{{ index }}">
+                <view class="meal-lookMore" wx:if="{{item.outNum > 1}}" bindtap="showHideSoldOut" data-pindex="{{ index }}">
                     <text>{{ item.showHide ? "点击收起" : "查看更多已售罄商品（"+ (item.outNum - 1) +"件）" }}</text>
                     <text class="iconfont fs-12 ml-4 {{ item.showHide? 'icon-xiala1' : 'icon-xiala' }}"></text>
                 </view>

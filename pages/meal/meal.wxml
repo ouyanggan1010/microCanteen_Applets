@@ -1,7 +1,7 @@
-<view wx:if="{{ isPage }}">
+<view wx:if="{{ isPage }}" style="--padTop:{{topPad}}px;--lineH:{{titleLineH}}px;">
   <!-- 头部 -->
-  <view class="meal-top" style="--padTop:{{topPad}}px">
-    <view class="title"  style="--lineH:{{titleLineH}}px">奈雪的茶</view>
+  <view class="meal-top">
+    <view class="title">奈雪的茶</view>
     <view class="posA" bindtap="openFightOrderP">
       <text>拼单</text>
       <view class="iconfont icon-naicha"></view>

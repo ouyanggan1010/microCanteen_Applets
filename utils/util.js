@@ -119,11 +119,7 @@ const getUserLocation = async (callback1, callback2) => {
           //再次授权，调用wx.getLocation的API
           getLocation(callback1);
         } else {
-          wx.showToast({
-            title: "授权失败",
-            icon: "none",
-            duration: 1000,
-          });
+          getUserLocation(callback1, callback2);
         }
       }
     } else {

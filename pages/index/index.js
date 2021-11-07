@@ -9,22 +9,22 @@ Page({
     swiperItems: [
       {
         id: "indexSwiper_001",
-        pic: "../../styles/imagesTest/奈雪杯.jpg",
+        pic: "../../styles/imagesTest/nxCup.jpg",
         link: "",
       },
       {
         id: "indexSwiper_002",
-        pic: "../../styles/imagesTest/拼单.jpg",
+        pic: "../../styles/imagesTest/fight.jpg",
         link: "",
       },
       {
         id: "indexSwiper_003",
-        pic: "../../styles/imagesTest/端午粽子.jpg",
+        pic: "../../styles/imagesTest/zongzi.jpg",
         link: "",
       },
       {
         id: "indexSwiper_004",
-        pic: "../../styles/imagesTest/茶包.jpg",
+        pic: "../../styles/imagesTest/teaBag.jpg",
         link: "",
       },
     ],
@@ -34,13 +34,13 @@ Page({
     member: [
       {
         id: "member_001",
-        pic: "../../styles/imagesTest/美术馆.jpg",
+        pic: "../../styles/imagesTest/artGallery.jpg",
         leftCnt: "CUP美术馆",
         rightCnt: "牵着手，握着爱",
       },
       {
         id: "member_002",
-        pic: "../../styles/imagesTest/奈雪拼单.jpg",
+        pic: "../../styles/imagesTest/fightOrder.jpg",
         leftCnt: "奈雪拼单",
         rightCnt: "最高优惠30元",
       },

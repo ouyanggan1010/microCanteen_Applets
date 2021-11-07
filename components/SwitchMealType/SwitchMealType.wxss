@@ -16,6 +16,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .switchTab .default {
   width: 100rpx;
   height: 60rpx;
@@ -30,6 +31,7 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
 .switchTab .active {
   background-color: #a7d500;
   color: #fff;

@@ -30,28 +30,30 @@ Component({
     // ---------------------产品分类左侧选择项
     itemTypeL: 0,
     activeR: 0,
+    // ---------------------产品分类左侧是否点击
+    isClickL: false,
     // ---------------------产品分类右侧选择项
     itemTypeR: 0,
     // ---------------------右侧产品轮播
     swiperItems: [
       {
         id: "rightSwiper_001",
-        pic: "../../styles/imagesTest/奈雪杯.jpg",
+        pic: "../../styles/imagesTest/nxCup.jpg",
         link: "",
       },
       {
         id: "rightSwiper_002",
-        pic: "../../styles/imagesTest/拼单.jpg",
+        pic: "../../styles/imagesTest/fight.jpg",
         link: "",
       },
       {
         id: "rightSwiper_003",
-        pic: "../../styles/imagesTest/端午粽子.jpg",
+        pic: "../../styles/imagesTest/zongzi.jpg",
         link: "",
       },
       {
         id: "rightSwiper_004",
-        pic: "../../styles/imagesTest/茶包.jpg",
+        pic: "../../styles/imagesTest/teaBag.jpg",
         link: "",
       },
     ],
@@ -84,34 +86,43 @@ Component({
     changeItem(e) {
       const { index } = e.target.dataset;
       this.setData({
-        itemTypeL: index,
+        itemTypeL: index + 1,
         activeR: index,
+        isClickL: true
       });
+    },
+    foodDragstart(){
+      this.setData({
+        isClickL:false
+      })
     },
     /**
      * 产品右侧分类滚动切换事件
      */
     foodScroolEnd(res) {
-      const { scrollTop } = res.detail;
-      this.setData({
-        scrollTopR: scrollTop,
-      });
-      const { top, scrollTopR, activeR } = this.data;
-      const len = top.length;
-      for (var i = 0; i < len; i++) {
-        if (
-          top[i] - top[0] <= scrollTopR &&
-          i < len - 1 &&
-          top[i + 1] - top[0] > scrollTopR
-        ) {
-          const k = i - 1 > -1 ? i - 1 : 0;
-          if (activeR != k) {
-            this.setData({
-              activeR: k,
-              itemTypeR: k,
-            });
+      const {isClickL} = this.data;
+      if(!isClickL){
+        const { scrollTop } = res.detail;
+        this.setData({
+          scrollTopR: scrollTop,
+        });
+        const { top, scrollTopR, activeR } = this.data;
+        const len = top.length;
+        for (var i = 0; i < len; i++) {
+          if (
+            top[i] - top[0] <= scrollTopR &&
+            i < len - 1 &&
+            top[i + 1] - top[0] > scrollTopR
+          ) {
+            const k = i - 1 > -1 ? i - 1 : 0;
+            if (activeR != k) {
+              this.setData({
+                activeR: k,
+                itemTypeR: k,
+              });
+            }
+            break;
           }
-          break;
         }
       }
     },

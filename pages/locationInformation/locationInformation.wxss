@@ -3,10 +3,12 @@
   height: 100vh;
   position: relative;
 }
+
 .locationInformation #myMap {
   height: 83%;
   width: 100%;
 }
+
 .locationInformation .dingdian {
   position: absolute;
   bottom: 22%;
@@ -27,10 +29,12 @@
   -webkit-box-shadow: 0 0 5px #919191;
           box-shadow: 0 0 5px #919191;
 }
+
 .locationInformation .dingdian .iconfont {
   color: #313131;
   font-size: 40rpx;
 }
+
 .locationInformation .storeMsg {
   background-color: #ffffff;
   height: 17%;
@@ -48,6 +52,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 .locationInformation .storeMsg > .cnt {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -56,9 +61,11 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .locationInformation .storeMsg > .cnt .leftView {
   width: 70%;
 }
+
 .locationInformation .storeMsg > .cnt .rightView > image {
   width: 110rpx;
   height: 110rpx;

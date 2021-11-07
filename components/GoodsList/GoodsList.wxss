@@ -8,6 +8,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .goodsList .leftItem {
   padding: 28rpx 10rpx;
   border-left: 8rpx solid #f5f5f5;
@@ -16,10 +17,12 @@
   color: #313131;
   position: relative;
 }
+
 .goodsList .leftItem.active {
   border-left: 8rpx solid #a7d500;
   background-color: #fff;
 }
+
 .goodsList .leftItem .tips {
   position: absolute;
   top: 0;
@@ -34,31 +37,38 @@
   border-top-left-radius: 12rpx;
   font-size: 16rpx;
 }
+
 .goodsList swiper {
   width: 100%;
   height: 270rpx;
 }
+
 .goodsList .tag {
   margin-left: -10rpx;
   margin-top: 2rpx;
 }
+
 .goodsList .tag view {
   padding: 4rpx 8rpx;
   margin-left: 10rpx;
   margin-top: 10rpx;
 }
+
 .goodsList .tag .pink {
   background-color: #fbf2f3;
   color: #f4a1b3;
 }
+
 .goodsList .tag .gray {
   background-color: #f6f6f6;
   color: #a3a4a8;
 }
+
 .goodsList .tag .yellow {
   background-color: #f9f5e9;
   color: #e2b769;
 }
+
 .goodsList .meal-food {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +78,7 @@
           justify-content: space-between;
   margin-bottom: 60rpx;
 }
+
 .goodsList .meal-food .format {
   background-color: #a7d500;
   color: #fff;
@@ -77,21 +88,26 @@
   line-height: 42rpx;
   border-radius: 42rpx;
 }
+
 .goodsList .count .iconfont {
   font-size: 40rpx;
 }
+
 .goodsList .count .icon-iconset0187 {
   color: #b3b7b8;
 }
+
 .goodsList .count .icon--jia {
   color: #a7d500;
 }
+
 .goodsList .count .text {
   font-size: 28rpx;
   padding: 0 8rpx;
   min-width: 70rpx;
   text-align: center;
 }
+
 .goodsList .meal-lookMore {
   padding: 16rpx 0;
   background-color: #f3f4f6;

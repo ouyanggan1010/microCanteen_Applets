@@ -50,7 +50,7 @@ Component({
     collocationLists: [
       {
         id: "cId_001",
-        pic: "../../styles/imagesTest/奈雪拼单.jpg",
+        pic: "../../styles/imagesTest/fightOrder.jpg",
         price: "30.00",
         title: "霸气杨梅",
         num: 0,
@@ -58,7 +58,7 @@ Component({
       },
       {
         id: "cId_002",
-        pic: "../../styles/imagesTest/奈雪杯.jpg",
+        pic: "../../styles/imagesTest/nxCup.jpg",
         price: "32.00",
         title: "黑椒味薯条",
         num: 0,
@@ -66,7 +66,7 @@ Component({
       },
       {
         id: "cId_003",
-        pic: "../../styles/imagesTest/端午粽子.jpg",
+        pic: "../../styles/imagesTest/zongzi.jpg",
         price: "12.00",
         title: "原味薯条",
         num: 0,

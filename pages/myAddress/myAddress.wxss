@@ -9,10 +9,12 @@
   padding-top: 24rpx;
   overflow-y: auto;
 }
+
 .myAddress .lists {
   width: 100%;
   padding: 0 30rpx;
 }
+
 .myAddress .lists .address {
   background-color: #ffffff;
   width: 100%;
@@ -30,6 +32,7 @@
           align-items: center;
   padding: 0 30rpx;
 }
+
 .myAddress .lists .address .title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,20 +41,24 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .myAddress .lists .address .title .default,
 .myAddress .lists .address .title .tag {
   padding: 2rpx 8rpx;
   font-size: 20rpx;
   margin-right: 8rpx;
 }
+
 .myAddress .lists .address .title .default {
   border: 2rpx solid #a7d700;
   color: #a7d700;
 }
+
 .myAddress .lists .address .title .tag {
   border: 2rpx solid #3291da;
   color: #3291da;
 }
+
 .myAddress .btns {
   width: 100%;
   position: fixed;
@@ -68,6 +75,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .myAddress .btns .import,
 .myAddress .btns .add {
   width: 300rpx;
@@ -83,6 +91,7 @@
           align-items: center;
   border-radius: 92rpx;
 }
+
 .myAddress .btns .import {
   border: 2rpx solid #a7d700;
   color: #a7d700;
@@ -92,11 +101,13 @@
   padding-left: 0;
   padding-right: 0;
 }
+
 .myAddress .btns .add {
   border: none;
   color: #ffffff;
   background-color: #a7d700;
 }
+
 .myAddress .noLists {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -57,13 +57,13 @@
       <navigator class="partThree flex-2 ml-12" url="" open-type="navigate">
         <view class="fs-12 fwb">储值有礼</view>
         <view class="tips">享买1赠1</view>
-        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/饮料杯.png" />
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/drinksCup.png" />
       </navigator>
       <!-- 买茶送包 -->
       <navigator class="partThree flex-2 ml-12" url="" open-type="navigate">
         <view class="fs-12 fwb">买茶送包</view>
         <view class="tips">限时有礼</view>
-        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/钱币.png" />
+        <image class="imgPos" mode="scaleToFill" src="../../styles/imagesTest/coin.png" />
       </navigator>
     </view>
     <!-- 会员新鲜事 -->

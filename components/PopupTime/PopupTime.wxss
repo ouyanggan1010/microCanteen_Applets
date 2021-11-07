@@ -5,6 +5,7 @@
   background-color: #ffffff;
   overflow: hidden;
 }
+
 .popupTime > .title {
   background-color: #f9fafc;
   -webkit-box-sizing: border-box;
@@ -13,6 +14,7 @@
   text-align: center;
   color: #717275;
 }
+
 .popupTime > .cnt {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,6 +22,7 @@
   width: 100%;
   height: calc(100% - 94rpx);
 }
+
 .popupTime > .cnt > .left {
   width: 280rpx;
   height: 100%;
@@ -27,6 +30,7 @@
   text-align: center;
   overflow-y: auto;
 }
+
 .popupTime > .cnt > .left > .totalList {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -35,10 +39,12 @@
   font-weight: bold;
   font-size: 26rpx;
 }
+
 .popupTime > .cnt > .left > .totalList.active {
   background-color: #ffffff;
   color: #252525;
 }
+
 .popupTime > .cnt > .right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -47,6 +53,7 @@
   overflow-y: auto;
   text-align: center;
 }
+
 .popupTime > .cnt > .right > .partList {
   color: #252525;
   -webkit-box-sizing: border-box;

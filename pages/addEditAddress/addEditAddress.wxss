@@ -2,12 +2,15 @@
 .addEditAddress {
   padding: 0 28rpx;
 }
+
 .addEditAddress .message {
   padding-top: 32rpx;
 }
+
 .addEditAddress .tag {
   padding-top: 28rpx;
 }
+
 .addEditAddress .tag .soltTips {
   width: 100%;
   display: -webkit-box;
@@ -20,6 +23,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .addEditAddress .tag .soltTips > view {
   border: 2rpx solid #a2a3a5;
   width: 130rpx;
@@ -35,11 +39,13 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
 .addEditAddress .tag .soltTips > view.active {
   border: 2rpx solid #a7d500;
   background-color: #a7d500;
   color: #ffffff;
 }
+
 .addEditAddress .editBtns,
 .addEditAddress .addBtns {
   width: 100%;
@@ -53,6 +59,7 @@
           align-items: center;
   margin-top: 150rpx;
 }
+
 .addEditAddress .editBtns .delete,
 .addEditAddress .editBtns .safe,
 .addEditAddress .addBtns .delete,
@@ -75,23 +82,27 @@
   padding-right: 0;
   font-size: 26rpx;
 }
+
 .addEditAddress .editBtns .delete,
 .addEditAddress .addBtns .delete {
   border: 2rpx solid #a7d700;
   color: #a7d700;
   background-color: #f3f4f6;
 }
+
 .addEditAddress .editBtns .safe,
 .addEditAddress .addBtns .safe {
   border: none;
   color: #ffffff;
   background-color: #a7d700;
 }
+
 .addEditAddress .addBtns {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
+
 .addEditAddress .addBtns .safe {
   width: 634rpx;
 }

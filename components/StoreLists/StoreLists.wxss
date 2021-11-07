@@ -14,12 +14,15 @@
   margin-top: 30rpx;
   border-radius: 8rpx;
 }
+
 .storeList:nth-child(1) {
   margin-top: 0;
 }
+
 .storeList.active {
   border: 2rpx solid #a8cc2c;
 }
+
 .storeList > .tab_left {
   border-right: 2rpx solid #e3e4e8;
   -webkit-box-flex: 1;
@@ -29,6 +32,7 @@
           box-sizing: border-box;
   padding: 0 30rpx;
 }
+
 .storeList > .tab_left .mark {
   background-color: #a7d700;
   font-size: 16rpx;
@@ -41,6 +45,7 @@
   text-align: center;
   border-radius: 6rpx;
 }
+
 .storeList > .tab_right {
   width: 200rpx;
   -webkit-box-sizing: border-box;
@@ -59,6 +64,7 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
 .storeList > .tab_right .round {
   background-color: #f2f5e8;
   border-radius: 50%;

@@ -17,7 +17,7 @@ Component({
     // ---------------------左上角距离顶部的数值
     topPad: 0,
     // ---------------------左上角顶部标题的数值
-    titleLineH:0,
+    titleLineH: 0,
     // ---------------------当前时间段是否是可以点餐
     restDate: app.restDate,
     // ---------------------自取、外卖选择项
@@ -303,40 +303,41 @@ Component({
     onLoad: function (options) {
       console.log("监听页面加载--点餐页", options);
       const { selfId } = options;
-      // ----------获取当前坐标经纬度
-      getUserLocation(
-        (res) => {
-          let la = res.latitude;
-          let lo = res.longitude;
-          this.geographical = {
-            la,
-            lo,
-          };
-          // 更改过自取的店铺位置
-          let selfCollection;
-          if (selfId) {
-            selfCollection = {
-              id: "self_003",
-              shopName: "更改过后的店铺",
-              distance: "4.7km",
+
+        // ----------获取当前坐标经纬度
+        getUserLocation(
+          (res) => {
+            let la = res.latitude;
+            let lo = res.longitude;
+            this.geographical = {
+              la,
+              lo,
             };
-          } else {
-            selfCollection = {
-              id: "self_001",
-              shopName: "海口吾悦广场店",
-              distance: "4.7km",
-            };
+            // 更改过自取的店铺位置
+            let selfCollection;
+            if (selfId) {
+              selfCollection = {
+                id: "self_003",
+                shopName: "更改过后的店铺",
+                distance: "4.7km",
+              };
+            } else {
+              selfCollection = {
+                id: "self_001",
+                shopName: "海口吾悦广场店",
+                distance: "4.7km",
+              };
+            }
+            // ----------通过请求后台获取距离当前位置最近的店铺与距离
+            this.setData({
+              selfCollection,
+              isPage: true,
+            });
+          },
+          () => {
+            console.log("获取经纬度点击了取消");
           }
-          // ----------通过请求后台获取距离当前位置最近的店铺与距离
-          this.setData({
-            selfCollection,
-            isPage: true,
-          });
-        },
-        () => {
-          console.log(22);
-        }
-      );
+        );
       // ----------数据整理
       // 左侧数据整理
       const leftArry = foodLists.map((item) => {
@@ -387,42 +388,54 @@ Component({
         // 购物车数据，从后台获取
         foodCart: shopCart,
         topPad: client.top,
-        titleLineH:client.height
+        titleLineH: client.height
       });
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {},
+    onReady: function () { },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () {
+      // 组件进入进行加载动画
+      wx.showLoading({
+        mask: true,
+      });
+      // 暂停加载动画
+      setTimeout(() => {
+        this.setData({
+          showLoading: false,
+        });
+        wx.hideLoading();
+      }, 500);
+    },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {},
+    onHide: function () { },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {},
+    onUnload: function () { },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {},
+    onPullDownRefresh: function () { },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {},
+    onReachBottom: function () { },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {},
+    onShareAppMessage: function () { },
   },
 });

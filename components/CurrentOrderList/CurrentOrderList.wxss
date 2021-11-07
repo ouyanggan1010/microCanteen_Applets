@@ -5,6 +5,7 @@
   padding-top: 20rpx;
   height: calc(100vh - 44px);
 }
+
 .currentOrder_list .scroll-view .scroll-view-item {
   background-color: #ffffff;
   border-radius: 14rpx;
@@ -13,6 +14,7 @@
           box-sizing: border-box;
   margin-bottom: 28rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,11 +28,13 @@
   border-bottom: 2rpx dotted #e3e4e8;
   padding-bottom: 30rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .top .title {
   font-size: 30rpx;
   color: #313131;
   font-weight: bold;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .top .statusType {
   border-radius: 10rpx;
   border: 4rpx solid #a8d017;
@@ -38,6 +42,7 @@
   font-size: 24rpx;
   padding: 2rpx 8rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .top .status {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,11 +56,13 @@
   font-size: 30rpx;
   color: #252525;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .top .status .iconfont {
   font-size: 24rpx;
   color: #878a93;
   margin-left: 6rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .cnt {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -70,6 +77,7 @@
           box-sizing: border-box;
   padding-top: 30rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .cnt > .imgs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,25 +89,30 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .cnt > .imgs > .img {
   width: 110rpx;
   height: 110rpx;
   border-radius: 14rpx;
   margin-left: 8rpx;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .cnt > .imgs > .img:nth-child(1) {
   margin-left: 0;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item > .cnt > .texts {
   text-align: right;
   font-size: 28rpx;
   color: #a0a4a5;
 }
+
 .currentOrder_list .scroll-view .scroll-view-item .orderTime {
   font-size: 24rpx;
   color: #a0a4a5;
   margin-top: 8rpx;
 }
+
 .currentOrder_list .scroll-view .dropDown {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -116,6 +129,7 @@
   color: #969799;
   font-size: 28rpx;
 }
+
 .currentOrder_list .empty {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,15 +143,18 @@
           flex-direction: column;
   padding-top: 140rpx;
 }
+
 .currentOrder_list .empty > .iconfont {
   color: #a7d500;
   font-size: 200rpx;
 }
+
 .currentOrder_list .empty > .text {
   color: #969799;
   font-size: 28rpx;
   margin-top: 8rpx;
 }
+
 .currentOrder_list .empty > .navTo {
   display: -webkit-box;
   display: -ms-flexbox;

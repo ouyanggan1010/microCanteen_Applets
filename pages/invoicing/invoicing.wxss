@@ -9,17 +9,21 @@
   padding-top: 24rpx;
   overflow-y: auto;
 }
+
 .invoicing > .content {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0 30rpx;
 }
+
 .invoicing > .content .changeRadio {
   width: 100%;
 }
+
 .invoicing > .content .changeRadio .radioStyle {
   width: 180rpx;
 }
+
 .invoicing > .btns {
   width: 100%;
   position: fixed;
@@ -36,6 +40,7 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
 .invoicing > .btns .import,
 .invoicing > .btns .add {
   width: 300rpx;
@@ -56,11 +61,13 @@
   padding-left: 0;
   padding-right: 0;
 }
+
 .invoicing > .btns .import {
   border: 2rpx solid #a7d700;
   color: #a7d700;
   background-color: #f3f4f6;
 }
+
 .invoicing > .btns .add {
   border: none;
   color: #ffffff;
