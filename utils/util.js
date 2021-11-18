@@ -118,8 +118,6 @@ const getUserLocation = async (callback1, callback2) => {
           });
           //再次授权，调用wx.getLocation的API
           getLocation(callback1);
-        } else {
-          getUserLocation(callback1, callback2);
         }
       }
     } else {

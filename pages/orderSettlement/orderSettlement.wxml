@@ -209,11 +209,11 @@
   </view>
   <view class="address">
     <view>{{pickType==0?selfCollection.address:takeaway.address}}</view>
-    <navigator wx:if="{{pickType==0}}" url="" open-type="navigate">更改门店</navigator>
-    <navigator wx:if="{{pickType==1}}" url="" open-type="navigate">更改地址</navigator>
+    <navigator wx:if="{{pickType==0}}" url="/pages/chooseStore/chooseStore" open-type="navigate">更改门店</navigator>
+    <navigator wx:if="{{pickType==1}}" url="/pages/myAddress/myAddress" open-type="navigate">更改地址</navigator>
   </view>
   <view class="btn">
-    <view>确认并付款</view>
+    <view bind:tap="payOrder">确认并付款</view>
   </view>
   <view class="iconfont icon-guanbi" bind:tap="closeSelfPayPopup"></view>
 </van-popup>

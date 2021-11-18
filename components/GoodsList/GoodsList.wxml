@@ -53,9 +53,7 @@
                             <!-- 加减 -->
                             <view class="d-flex ai-center count" wx:if="{{!child.isSoldOut && restDate}}">
                                 <text class="iconfont icon-iconset0187" wx:if="{{child.buyNum>0}}" catchtap="changeShopCart" data-type="0" data-cid="{{ child.id }}"></text>
-                                <text class="text" wx:if="{{child.buyNum>0}}">
-                                    {{child.buyNum}}
-                                </text>
+                                <text class="text" wx:if="{{child.buyNum>0}}">{{child.buyNum}}</text>
                                 <text class="iconfont icon--jia" catchtap="changeShopCart" data-type="1" data-cid="{{ child.id }}"></text>
                             </view>
                             <!-- 已售罄 -->

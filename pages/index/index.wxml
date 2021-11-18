@@ -19,16 +19,16 @@
   <view class="twoPart">
     <!-- 自取、外卖 -->
     <view class="py-20 bg-white borderR d-flex boxs">
-      <navigator class="flex-1 d-flex flex-column ai-center jc-center" url="" open-type="navigate">
+      <view class="flex-1 d-flex flex-column ai-center jc-center" bindtap="switchTabMealSelf">
         <view class="iconfont icon-naicha fs-46 text-green-a7"></view>
         <view class="fs-18 fwb mt-4">自取</view>
         <view class="fs-10 text-gray-91 mt-4">预约点单，到店自取</view>
-      </navigator>
-      <navigator class="flex-1 d-flex flex-column ai-center jc-center van-hairline--left" url="" open-type="navigate">
+      </view>
+      <view class="flex-1 d-flex flex-column ai-center jc-center van-hairline--left" bindtap="switchTabMealTakeaway">
         <view class="iconfont icon-waimai fs-46 text-green-a7"></view>
         <view class="fs-18 fwb mt-4">外卖</view>
         <view class="fs-10 text-gray-91 mt-4">外卖下单，快速送达</view>
-      </navigator>
+      </view>
     </view>
     <!-- 我的积分、会员码 -->
     <view class="mt-14 py-14 bg-white borderR d-flex jc-between ai-center boxs">

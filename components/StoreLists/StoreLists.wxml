@@ -2,7 +2,7 @@
 <view
   class="storeList {{ activeId == item.id ? 'active' : '' }}"
   bindtap="backMeal"
-  data-storename="{{ item.storeName }}"
+  data-storeid="{{ item.id }}"
   wx:for="{{ storeLists }}"
   wx:key="id"
 >

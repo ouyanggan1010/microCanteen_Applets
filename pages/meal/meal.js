@@ -20,19 +20,19 @@ Component({
     titleLineH: 0,
     // ---------------------当前时间段是否是可以点餐
     restDate: app.restDate,
-    // ---------------------自取、外卖选择项
+    // ---------------------自取0、外卖1选择项
     pickType: "0",
-    // ---------------------自取的数据
+    // ---------------------自取的数据，之包含店铺信息
     selfCollection: {
       id: "self_001",
       shopName: "",
+      // 当前位置距离该店铺的距离
       distance: "",
     },
-    // ---------------------外卖的位置信息数据
+    // ---------------------外卖的数据，配送地址信息
     takeaway: {
-      id: "address_001",
-      address: "龙华区城西镇枫林雅郡八栋二单元606",
-      shopName: "海口吾悦广场",
+      id: "",
+      address: "",
     },
     // ---------------------通知消息
     notice: "储值有礼，最高享买1赠1券",
@@ -80,7 +80,7 @@ Component({
       const { selfCollection } = this.data;
       if (type == 1) {
         wx.navigateTo({
-          url: `/pages/myAddress/myAddress?store=${selfCollection.shopName}`,
+          url: `/pages/myAddress/myAddress?storeId=${selfCollection.id}`,
         });
       } else {
         this.setData({
@@ -260,84 +260,44 @@ Component({
      */
     backChangeTakeaway(res) {
       console.log("更改点餐页面的外卖数据==", res);
-      const { store, id, address } = res;
-      this.setData({
-        takeaway: {
-          id: id,
-          address,
-          shopName: store,
-        },
-        pickType: 1,
-      });
+      const { id, storeId } = res;
+      // 通过店铺id获取店铺信息
+      this.getStoreData(storeId,1);
+      // 通过地址id获取地址信息
+      this.getTakeawayData(id);
+      // 根据店铺信息，更新商品数据
+      this.getGoodsListsData();
     },
     /**
      * 返回---更改点餐页面的外卖门店数据
      */
     backChangeTakeawayStore(res) {
       console.log("更改点餐页面的外卖门店数据==", res);
-      let { takeaway } = this.data;
-      takeaway.shopName = res;
-      this.setData({
-        takeaway,
-      });
+      // 通过店铺id获取店铺信息
+      this.getStoreData(res,1);
+      // 根据店铺信息，更新商品数据
+      this.getGoodsListsData();
     },
     /**
      * 返回---更改点餐页面的自取数据
      */
     backChangeSelfCollection(res) {
-      console.log("更改点餐页面的自取数据==", res);
-      let { selfCollection } = this.data;
-      selfCollection = {
-        id: "self_003",
-        shopName: "更改过后的店铺2",
-        distance: "1.7km",
-      };
+      console.log("更改点餐页面的自取数据，店铺id==", res);
+      // 更新页面显示参数
       this.setData({
-        selfCollection,
+        // 显示当前页面
+        isPage: true,
       });
+      // 通过店铺id获取店铺信息
+      this.getStoreData(res,0);
+      // 根据店铺信息，更新商品数据
+      this.getGoodsListsData();
     },
-    // ----------------------------------------------------生命周期函数
     /**
-     * 生命周期函数--监听页面加载
+     * 根据门店信息获取右侧列表与左侧商品列表数据与购物车数据
      */
-    onLoad: function (options) {
-      console.log("监听页面加载--点餐页", options);
-      const { selfId } = options;
-
-        // ----------获取当前坐标经纬度
-        getUserLocation(
-          (res) => {
-            let la = res.latitude;
-            let lo = res.longitude;
-            this.geographical = {
-              la,
-              lo,
-            };
-            // 更改过自取的店铺位置
-            let selfCollection;
-            if (selfId) {
-              selfCollection = {
-                id: "self_003",
-                shopName: "更改过后的店铺",
-                distance: "4.7km",
-              };
-            } else {
-              selfCollection = {
-                id: "self_001",
-                shopName: "海口吾悦广场店",
-                distance: "4.7km",
-              };
-            }
-            // ----------通过请求后台获取距离当前位置最近的店铺与距离
-            this.setData({
-              selfCollection,
-              isPage: true,
-            });
-          },
-          () => {
-            console.log("获取经纬度点击了取消");
-          }
-        );
+    getGoodsListsData() {
+      console.log("根据门店信息获取右侧列表与左侧商品列表数据=========")
       // ----------数据整理
       // 左侧数据整理
       const leftArry = foodLists.map((item) => {
@@ -378,18 +338,103 @@ Component({
           children,
         };
       });
-      // 获取右上角按钮的数据
-      const client = wx.getMenuButtonBoundingClientRect();
-      console.log("监听页面加载", client);
       // 将所有数据放入data中进行更新
       this.setData({
         foodListsLeft: leftArry,
         foodListsRight: rightArry,
         // 购物车数据，从后台获取
         foodCart: shopCart,
-        topPad: client.top,
-        titleLineH: client.height
       });
+    },
+    /**
+     * 获取右上角按钮的数据，可以不重复加载
+     */
+    getButtonData() {
+      // 获取右上角按钮的数据
+      const client = wx.getMenuButtonBoundingClientRect();
+      console.log("监听页面加载", client);
+      // 将所有数据放入data中进行更新
+      this.setData({
+        // 右上角按钮位置与大小
+        topPad: client.top,
+        titleLineH: client.height,
+      });
+    },
+    /**
+     * 获取店铺信息：1.通过经纬度获取店铺信息；2.通过店铺id获取店铺信息
+     * 获取外卖信息：通过店铺id获取店铺信息
+     * type区分是否是自取还是外卖的店铺信息
+     */
+    getStoreData(id,type) {
+      let la, lo;
+      if (this.geographical) {
+        la = this.geographical.la;
+        lo = this.geographical.lo;
+      }
+      let selfCollection = {};
+      // 通过经纬度获取店铺信息
+      if (la && lo && !id) {
+        selfCollection = {
+          id: "self_001",
+          shopName: "通过经纬度获取店铺信息",
+          distance: "4.7km",
+        };
+        // 更新数据
+        this.setData({
+          selfCollection,
+          pickType: 0,
+        });
+      }
+      // 通过店铺id获取店铺信息
+      if (id) {
+        console.log("通过店铺id获取店铺信息")
+        selfCollection = {
+          id: id,
+          shopName: "通过店铺id获取店铺信息",
+          distance: "4.7km",
+        };
+        // 更新数据
+        this.setData({
+          selfCollection,
+          pickType: type,
+        });
+      }
+    },
+    /**
+     * 获取外卖信息：通过地址id获取配送地址
+     */
+    getTakeawayData(id) {
+      let takeaway = {};
+      // 通过店铺id获取店铺信息
+      if (id) {
+        console.log("通过店铺id获取店铺信息")
+        takeaway = {
+          id: "takeaway_001",
+          address: "通过地址id获取地址信息",
+        }
+      }
+      // 更新数据
+      this.setData({
+        takeaway,
+        pickType: 1,
+      });
+    },
+    // ----------------------------------------------------生命周期函数
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+      console.log("监听页面加载--点餐页", options);
+      // const { selfId } = options;
+      const { isPage } = this.data;
+      // 获取右上角按钮的信息
+      this.getButtonData();
+      if (isPage) {
+        // 获取左侧与右侧的商品列表信息
+        this.getGoodsListsData();
+        // 获取店铺信息
+        this.getStoreData();
+      }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -400,17 +445,46 @@ Component({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      // 组件进入进行加载动画
-      wx.showLoading({
-        mask: true,
-      });
-      // 暂停加载动画
-      setTimeout(() => {
+      const { isPage } = this.data;
+      console.log("生命周期函数--监听页面显示", isPage)
+      console.log("经纬度=-=-=-=-=", this.geographical)
+      // 从首页跳转过来
+      if (app.indexToMeal == "0") {
+        console.log("从首页跳转过来，并获取数据3", app.indexToMeal)
+        // 更新页面显示参数
         this.setData({
-          showLoading: false,
+          pickType: "0",
         });
-        wx.hideLoading();
-      }, 500);
+        app.indexToMeal = "";
+      }
+      if (!isPage) {
+        // ----------获取当前坐标经纬度
+        getUserLocation(
+          (res) => {
+            let la = res.latitude;
+            let lo = res.longitude;
+            this.geographical = {
+              la,
+              lo,
+            };
+            // 更新页面显示参数
+            this.setData({
+              // 显示当前页面
+              isPage: true,
+            });
+            // 获取左侧与右侧的商品列表信息
+            this.getGoodsListsData();
+            // 获取店铺信息
+            this.getStoreData();
+          },
+          () => {
+            console.log("获取经纬度点击了取消");
+            wx.navigateTo({
+              url: `/pages/chooseStore/chooseStore`,
+            });
+          }
+        );
+      }
     },
 
     /**

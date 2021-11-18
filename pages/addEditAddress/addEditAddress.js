@@ -112,6 +112,11 @@ Page({
             },
           });
           setTimeout(async () => {
+            let pages = getCurrentPages(); // 当前页，
+            let prevPage = pages[pages.length - 2]; // 上一页
+            if (prevPage.route == "pages/myAddress/myAddress") {
+              prevPage.restData();
+            }
             wx.navigateBack();
           }, 800);
         }, 1000);
@@ -121,11 +126,53 @@ Page({
     }
   },
   /**
+   * 点击保存地址
+   */
+  async saveAddress() {
+    try {
+      // 保存校验
+      const { receiver, sexName, phone, shippingAddress, houseNumber } = this.data;
+
+      await promiseFun({
+        eventName: wx.showLoading,
+        params: {
+          title: "保存中",
+          mask: true,
+        },
+      });
+      setTimeout(async () => {
+        wx.hideLoading();
+        let pages = getCurrentPages(); // 当前页，
+        let prevPage = pages[pages.length - 2]; // 上一页
+        if (prevPage.route == "pages/myAddress/myAddress") {
+          prevPage.restData();
+        }
+        wx.navigateBack();
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  /**
+   * 保存的校验函数
+   */
+  checkFun(str,type){
+    // type表示有些需要特殊校验的
+    if (str) {
+      wx.showToast({
+        title: '请选择性别',
+        icon: 'error',
+        mask: true,
+        duration: 1000,
+      });
+    }
+  },
+  /**
    * 选择收货地址
    */
   choseAddress() {
     wx.navigateTo({
-      url: `../mapAddress/mapAddress`,
+      url: `/pages/mapAddress/mapAddress`,
     });
   },
   // --------------------------------------生命周期函数
@@ -168,7 +215,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
@@ -194,25 +241,25 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {},
+  onHide: function () { },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {},
+  onUnload: function () { },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {},
+  onPullDownRefresh: function () { },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {},
+  onReachBottom: function () { },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareAppMessage: function () { },
 });

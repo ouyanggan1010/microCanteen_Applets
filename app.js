@@ -21,6 +21,8 @@ App({
     nickName: "",
     gender: "",
   },
+  // -------------------从首页跳转到点餐页进行传参，0表示自取
+  indexToMeal:"",
   // -------------------当前时间段是否是休息
   restDate: true,
   async onLaunch() {

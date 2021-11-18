@@ -18,7 +18,7 @@ Component({
     selfCollection: {
       id: "self_001",
       shopName: "海口吾悦广场21",
-      address:"海南省海口市海秀东路8号望海国际广场西侧精品楼一、二层指定位置",
+      address: "海南省海口市海秀东路8号望海国际广场西侧精品楼一、二层指定位置",
       distance: "1.2km",
     },
     // ---------------------外卖的位置信息数据
@@ -28,7 +28,7 @@ Component({
       shopName: "海口吾悦广场",
       phone: "13518814469",
       name: "欧阳平",
-      sex:0,//0女，1男
+      sex: 0,//0女，1男
       packageFee: "28.00",
       deliveryFee: "4.00",
     },
@@ -96,7 +96,7 @@ Component({
     },
     // ---------------------总支付额
     totalPayAmount(data) {
-      const { orderLists, collocationLists } = data;
+      const { orderLists, collocationLists, pickType, costChecked, takeaway } = data;
       let totalPrice = 0;
       orderLists.forEach((item) => {
         const p = Number(item.price);
@@ -108,6 +108,12 @@ Component({
         const n = Number(item.num);
         totalPrice = totalPrice + p * n;
       });
+      if (pickType == "1") {
+        totalPrice = totalPrice + Number(takeaway.deliveryFee);
+        if (costChecked) {
+          totalPrice = totalPrice + Number(takeaway.packageFee);
+        }
+      }
       return totalPrice.toFixed(2);
     },
   },
@@ -353,6 +359,43 @@ Component({
         showSelfPayBtn: true,
       });
     },
+    /**
+     * 确认并付款
+     */
+    async payOrder() {
+      try {
+        console.log("确认并付款=====", this.data.totalPayAmount)
+        wx.showLoading({
+          title: '支付中...',
+          mask: true,
+        })
+
+        setTimeout(async ()=>{
+          wx.hideLoading();
+          await promiseFun({
+            eventName: wx.showToast,
+            params: {
+              title: "支付成功",
+              icon: "success",
+              mask: true,
+              duration: 1000,
+            },
+          });
+          wx.switchTab({
+            url: '/pages/order/order',
+            success(){
+              setTimeout(()=>{
+                let page = getCurrentPages().pop();
+                if(page == undefined || page == null) return;
+                page.onLoad();
+              },100)
+            }
+          })
+        }, 1000)
+      } catch (error) {
+        console.log(error);
+      }
+    },
     // --------------------------------------生命周期函数
     /**
      * 生命周期函数--监听页面加载
@@ -368,36 +411,36 @@ Component({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {},
+    onReady: function () { },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () { },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {},
+    onHide: function () { },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {},
+    onUnload: function () { },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {},
+    onPullDownRefresh: function () { },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {},
+    onReachBottom: function () { },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {},
+    onShareAppMessage: function () { },
   },
 });

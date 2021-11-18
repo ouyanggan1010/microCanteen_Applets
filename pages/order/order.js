@@ -425,8 +425,14 @@ Component({
      */
     onLoad: function (options) {
       console.log("onload========");
+      this.setData({
+        currentOrder:[],
+        showLoading: false,
+      });
       // -----------第一次进入页面，先获取当前订单的数据
-      this.getCurrent();
+      setTimeout(()=>{
+        this.getCurrent();
+      },100)
     },
 
     /**

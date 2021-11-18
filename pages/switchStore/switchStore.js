@@ -19,7 +19,7 @@ Page({
         id:"store_001",
         storeAddress:
           "海南省海口市龙华区迎宾路18号海口新城吾悦广场一层1026-1027铺",
-        storeName: "海口吾悦广场店33",
+        storeName: "海口吾悦广场店1",
         mark: "可外送",
         openTime: "10:00-22:00",
         distance: "124m",
@@ -28,10 +28,10 @@ Page({
         latitude: "19.977304",
         longitude: "110.337662",
       },{
-        id:"store_001",
+        id:"store_002",
         storeAddress:
           "海南省海口市龙华区迎宾路18号海口新城吾悦广场一层1026-1027铺",
-        storeName: "海口吾悦广场店33",
+        storeName: "海口吾悦广场店2",
         mark: "可外送",
         openTime: "10:00-22:00",
         distance: "124m",
@@ -40,10 +40,10 @@ Page({
         latitude: "19.977304",
         longitude: "110.337662",
       },{
-        id:"store_001",
+        id:"store_003",
         storeAddress:
           "海南省海口市龙华区迎宾路18号海口新城吾悦广场一层1026-1027铺",
-        storeName: "海口吾悦广场店33",
+        storeName: "海口吾悦广场店3",
         mark: "可外送",
         openTime: "10:00-22:00",
         distance: "124m",
@@ -52,10 +52,10 @@ Page({
         latitude: "19.977304",
         longitude: "110.337662",
       },{
-        id:"store_001",
+        id:"store_004",
         storeAddress:
           "海南省海口市龙华区迎宾路18号海口新城吾悦广场一层1026-1027铺",
-        storeName: "海口吾悦广场店33",
+        storeName: "海口吾悦广场店4",
         mark: "可外送",
         openTime: "10:00-22:00",
         distance: "124m",
@@ -87,11 +87,11 @@ Page({
    * 返回到上级页面
    */
   backMeal(e) {
-    const { storename } = e.detail;
+    const { storeId } = e.detail;
     let pages = getCurrentPages(); // 当前页，
     let prevPage = pages[pages.length - 2]; // 上一页
     if (prevPage.route == "pages/meal/meal") {
-      prevPage.backChangeTakeawayStore(storename);
+      prevPage.backChangeTakeawayStore(storeId);
     }
     wx.navigateBack();
   },
@@ -110,11 +110,17 @@ Page({
    */
   onLoad: function (options) {
     console.log("switchStore===", options);
-    const { address, storeName } = options;
-    this.setData({
-      address,
-      storeName,
-    });
+    const { addressId, storeId } = options;
+    if(addressId){
+      this.setData({
+        address:"海口市枫林雅郡",
+      });
+    }
+    if(storeId){
+      this.setData({
+        storeName:"吾悦广场店",
+      });
+    }
   },
 
   /**

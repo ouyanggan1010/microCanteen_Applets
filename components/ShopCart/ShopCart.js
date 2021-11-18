@@ -54,7 +54,7 @@ Component({
      */
     jumpOrderSettlement() {
       const { shopCarts } = this.data;
-      wx.redirectTo({
+      wx.navigateTo({
         url: `/pages/orderSettlement/orderSettlement?orderLists=${JSON.stringify(shopCarts)}`
       });
     },

@@ -27,6 +27,7 @@ Component({
         sex: "女士",
         phone: "13518814469",
         // 可以配送的最近的门店
+        storeId: "store_001",
         store: "海口吾悦广场店",
         distance: "4.7km",
       },
@@ -40,6 +41,7 @@ Component({
         sex: "女士",
         phone: "13518814469",
         // 可以配送的最近的门店
+        storeId: "",
         store: "",
         distance: "",
       },
@@ -53,6 +55,7 @@ Component({
         sex: "女士",
         phone: "13518814469",
         // 可以配送的最近的门店
+        storeId: "store_002",
         store: "海口阳光城店",
         distance: "5.8km",
       },
@@ -81,6 +84,8 @@ Component({
       let noArry = [];
       if (restDate) {
         yesArry = listsData.filter((item) => {
+          console.log(store)
+          console.log(item.store)
           return item.store == store;
         });
         noArry = listsData.filter((item) => {
@@ -97,7 +102,31 @@ Component({
     /**
      * 阻止navigator冒泡
      */
-    emptyFunc() {},
+    emptyFunc() { },
+    /**
+     * 点击地址列表事件---最终的事件
+     */
+    lastEven(list) {
+      let pages = getCurrentPages(); // 当前页，
+      let prevPage = pages[pages.length - 2]; // 上一页
+      if (prevPage.route == "pages/meal/meal") {
+        prevPage.backChangeTakeaway(list);
+        wx.navigateBack();
+      }else if(prevPage.route == "pages/index/index" || prevPage.route == "pages/orderSettlement/orderSettlement"){
+        console.log('=====从首页过来，并需要跳转到点餐页')
+        wx.switchTab({
+          url:"/pages/meal/meal",
+          success(){
+            setTimeout(()=>{
+              let page = getCurrentPages().pop();
+              console.log(page)
+              if(page == undefined || page == null) return;
+              page.backChangeTakeaway(list);
+            },1000)
+          }
+        })
+      }
+    },
     /**
      * 点击地址列表事件
      */
@@ -106,12 +135,7 @@ Component({
         const { type, list } = e.currentTarget.dataset;
         const { restDate } = this.data;
         if (type == "0") {
-          let pages = getCurrentPages(); // 当前页，
-          let prevPage = pages[pages.length - 2]; // 上一页
-          if (prevPage.route == "pages/meal/meal" || prevPage.route == "pages/orderSettlement/orderSettlement") {
-            prevPage.backChangeTakeaway(list);
-          } 
-          wx.navigateBack();
+          this.lastEven(list);
         } else {
           // -------需要通过请求判断当前的地址范围内是否可以有配送店铺
           // -------分两种情况：1.当前时间段不是配送时间；2.该地址没有可以配送的门店
@@ -126,12 +150,7 @@ Component({
               },
             });
             if (res1.confirm) {
-              let pages = getCurrentPages(); // 当前页，
-              let prevPage = pages[pages.length - 2]; // 上一页
-              if (prevPage.route == "pages/meal/meal" || prevPage.route == "pages/orderSettlement/orderSettlement") {
-                prevPage.backChangeTakeaway(list);
-              }
-              wx.navigateBack();
+              this.lastEven(list);
             }
           }
           if (!restDate && list.store) {
@@ -194,10 +213,13 @@ Component({
      */
     onLoad: function (options) {
       // ---------获取到url中的店铺名
-      const { store } = options;
-      this.setData({
-        store,
-      });
+      const { storeId } = options;
+      // 通过id获取店铺信息
+      if (storeId) {
+        this.setData({
+          store: "海口吾悦广场店",
+        });
+      }
       // ---------重组地址列表
       this.restData();
     },
@@ -205,6 +227,6 @@ Component({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {},
+    onReady: function () { },
   },
 });

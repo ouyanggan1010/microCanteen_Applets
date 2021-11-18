@@ -46,8 +46,8 @@ Component({
      * 返回到上级页面
      */
     backMeal(e) {
-      const { storename } = e.currentTarget.dataset;
-      this.triggerEvent("backMealP", { storename });
+      const { storeid } = e.currentTarget.dataset;
+      this.triggerEvent("backMealP", { storeId:storeid });
     },
   },
 });

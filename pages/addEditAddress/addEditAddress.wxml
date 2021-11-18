@@ -25,9 +25,9 @@
     <!-- 按钮 -->
     <view class="editBtns" wx:if="{{type==1}}">
         <button class="delete" type="default" plain="true" bindtap="deleteAddress">删除</button>
-        <button class="safe" type="default" plain="true">保存</button>
+        <button class="safe" type="default" plain="true" bindtap="saveAddress">保存</button>
     </view>
     <view class="addBtns" wx:if="{{type==2}}">
-        <button class="safe" type="default" plain="true">保存</button>
+        <button class="safe" type="default" plain="true" bindtap="saveAddress">保存</button>
     </view>
 </view>

@@ -27,7 +27,7 @@
       <navigator
         wx:if="{{ pickType == 1 }}"
         class="d-flex ai-center"
-        url="{{ '/pages/myAddress/myAddress?store=' + takeaway.shopName }}"
+        url="{{ '/pages/myAddress/myAddress?id=' + selfCollection.id }}"
         open-type="navigate"
       >
         <view class="overOne">{{takeaway.address}}</view>
@@ -43,11 +43,11 @@
       <view class="mt-4 d-flex ai-center lineH-18" wx:if="{{ pickType == 1 }}">
         <navigator
           class="d-flex ai-center text-green-a9"
-          url="{{ '/pages/switchStore/switchStore?address=' + takeaway.address + '&storeName='+ takeaway.shopName}}"
+          url="{{ '/pages/switchStore/switchStore?addressId=' + takeaway.id + '&storeId='+ selfCollection.id}}"
           open-type="navigate"
         >
           <text class="iconfont icon-qiehuan"></text>
-          <view class="ml-2 fs-12">{{ takeaway.shopName }}</view>
+          <view class="ml-2 fs-12">{{ selfCollection.shopName }}</view>
         </navigator>
         <view class="fs-12 text-gray-91 ml-4">配送</view>
       </view>

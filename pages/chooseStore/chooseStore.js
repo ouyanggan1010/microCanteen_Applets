@@ -75,13 +75,26 @@ Page({
    * 返回到上级页面
    */
   backMeal(e) {
-    console.log("返回到上级页面",e.detail)
     let pages = getCurrentPages(); // 当前页，
     let prevPage = pages[pages.length - 2]; // 上一页
-    if (prevPage.route == "pages/meal/meal" || prevPage.route == "pages/orderSettlement/orderSettlement") {
-      prevPage.backChangeSelfCollection("self_003");
+    console.log("返回到上级页面",e.detail)
+    const {storeId} = e.detail;
+    if (prevPage.route == "pages/meal/meal") {
+      prevPage.backChangeSelfCollection(storeId);
+      wx.navigateBack();
+    }else if(prevPage.route == "pages/orderSettlement/orderSettlement"){
+      console.log('=====从结算页面过来，并需要跳转到点餐页')
+      wx.switchTab({
+        url:"/pages/meal/meal",
+        success(){
+          setTimeout(()=>{
+            let page = getCurrentPages().pop();
+            if(page == undefined || page == null) return;
+            page.backChangeSelfCollection(storeId);
+          },1000)
+        }
+      })
     }
-    wx.navigateBack();
   },
   /**
    * 由切换城市页面返回过来的
